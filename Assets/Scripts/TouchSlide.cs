@@ -25,16 +25,16 @@ public class TouchSlide : MonoBehaviour
         screenResolution.x = Display.main.systemWidth;
         screenResolution.y = Display.main.systemHeight;
 
-        if(Input.touchCount > 0)
+        if (Input.touchCount > 0)
         {
             touch = Input.GetTouch(0);
 
-            if(touch.phase == TouchPhase.Began)
+            if (touch.phase == TouchPhase.Began)
             {
                 touchStartPos = touch.position;
             }
 
-            if(touch.phase == TouchPhase.Ended)
+            if (touch.phase == TouchPhase.Ended)
             {
                 touchLastPos = touch.position;
                 ChequearTipoDeTouch(touchStartPos, touchLastPos);
@@ -50,39 +50,39 @@ public class TouchSlide : MonoBehaviour
             float porcentajeDesplazamientoX = Mathf.Abs(deltaX) / screenResolution.x;
             float porcentajeDesplazamientoY = Mathf.Abs(deltaY) / screenResolution.y;
 
-            
+
             if (porcentajeDesplazamientoX < minimoPorcentajeDesplazamiento && porcentajeDesplazamientoY < minimoPorcentajeDesplazamiento)
             {
                 print("se movio muy poquito");
                 return;
             }
-            
 
 
-            if(Mathf.Abs(deltaX) > Mathf.Abs(deltaY))
+
+            if (Mathf.Abs(deltaX) > Mathf.Abs(deltaY))
             {
-                if(deltaX > 0)
+                if (deltaX > 0)
                 {
-                    print("derecha");
+                    //print("derecha");
                     onRightSlide.Invoke();
                 }
                 else
                 {
-                    print("izquierda");
+                    //print("izquierda");
                     onLeftSlide.Invoke();
                 }
 
             }
             else
             {
-                if(deltaY > 0)
+                if (deltaY > 0)
                 {
-                    print("arriba");
+                    //print("arriba");
                     onUpSlide.Invoke();
                 }
                 else
                 {
-                    print("abajo");
+                    //print("abajo");
                     onDownSlide.Invoke();
                 }
             }
