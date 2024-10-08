@@ -6,6 +6,10 @@ TagManager:
   tags:
   - trampa
   - rompible
+  - EsquinaID
+  - EsquinaSD
+  - EsquinaII
+  - EsquinaSI
   layers:
   - Default
   - TransparentFX

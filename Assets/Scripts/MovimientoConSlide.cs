@@ -1,5 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Net;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Events;
 public class MovimientoConSlide : MonoBehaviour
@@ -9,14 +11,17 @@ public class MovimientoConSlide : MonoBehaviour
     public LayerMask layerMask;
     public Animator anim;
     public GameObject hitEffectPrefab;
-    public UnityEvent onWallHit, onChocoConTrampa;
-
+    public UnityEvent onWallHit, onChocoConTrampa, onChocoEsquina;
+    public Transform cuerpo;
+    public SpriteRenderer SPCuerpo;
+    public Sprite normalSprite;
 
 
     bool moviendose;
     bool pegadoAPared;
     Vector3 siguienteDireccion;
     Vector3 velocidad;
+    public Vector3 normalScale;
 
     private void Start()
     {
@@ -45,7 +50,7 @@ public class MovimientoConSlide : MonoBehaviour
 
             pegadoAPared = Vector3.Distance(transform.position, siguienteDireccion) < 0.1f;
 
-            // esto es para decidir cual animaci�n de movimiento reproducir
+            /* esto es para decidir cual animaci�n de movimiento reproducir
             string animMover = "";
             if (direccion.y == 1)
                 animMover = "MoveUp";
@@ -56,7 +61,7 @@ public class MovimientoConSlide : MonoBehaviour
             if (direccion.x == -1)
                 animMover = "MoveLeft";
 
-            anim.Play(animMover);
+            anim.Play(animMover);*/
 
         }
     }
@@ -121,11 +126,71 @@ public class MovimientoConSlide : MonoBehaviour
         else if (hit2D.collider.CompareTag("trampa"))
             ChocoConTrampa();
 
-        AnimacionAterrizaje();
+        //AnimacionAterrizaje();
         EfectoParticulaImpacto();
 
     }
-
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("EsquinaID"))
+        {
+            onChocoEsquina.Invoke();
+            SPCuerpo.flipX = true;
+            cuerpo.transform.localScale = new Vector3(0.204500005f, 0.204500005f, 0.204500005f);
+        }
+        else if (collision.gameObject.CompareTag("EsquinaII"))
+        {
+            onChocoEsquina.Invoke();
+            SPCuerpo.flipX = false;
+            cuerpo.transform.localScale = new Vector3(0.204500005f, 0.204500005f, 0.204500005f);
+        }
+        else if (collision.gameObject.CompareTag("EsquinaSD"))
+        {
+            onChocoEsquina.Invoke();
+            SPCuerpo.flipX = false;
+            cuerpo.transform.localScale = new Vector3(0.204500005f, 0.204500005f, 0.204500005f);
+            Quaternion rotacion = Quaternion.Euler(0f, 0f, 180f);
+            cuerpo.transform.localRotation *= rotacion;
+        }
+        else if (collision.gameObject.CompareTag("EsquinaSI"))
+        {
+            onChocoEsquina.Invoke();
+            SPCuerpo.flipX = true;
+            cuerpo.transform.localScale = new Vector3(0.204500005f, 0.204500005f, 0.204500005f);
+            Quaternion rotacion = Quaternion.Euler(0f, 0f, 180f);
+            cuerpo.transform.localRotation *= rotacion;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("EsquinaID"))
+        {
+            SPCuerpo.flipX = false;
+            cuerpo.transform.localScale = normalScale;
+            SPCuerpo.sprite = normalSprite;
+        }
+        else if (collision.gameObject.CompareTag("EsquinaII"))
+        {
+            SPCuerpo.flipX = false;
+            cuerpo.transform.localScale = normalScale;
+            SPCuerpo.sprite = normalSprite;
+        }
+        else if (collision.gameObject.CompareTag("EsquinaSD"))
+        {
+            SPCuerpo.flipX = false;
+            cuerpo.transform.localScale = normalScale;
+            cuerpo.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            SPCuerpo.sprite = normalSprite;
+        }
+        else if (collision.gameObject.CompareTag("EsquinaSI"))
+        {
+            SPCuerpo.flipX = false;
+            cuerpo.transform.localScale = normalScale;
+            Quaternion rotacion = Quaternion.Euler(0f, 0f, 0f);
+            cuerpo.transform.localRotation = rotacion;
+            SPCuerpo.sprite = normalSprite;
+        }
+    }
     void AnimacionAterrizaje()
     {
         // esto es para decidir cual animaci�n de aterrizaje reproducir
