@@ -10,6 +10,7 @@ TagManager:
   - EsquinaSD
   - EsquinaII
   - EsquinaSI
+  - AreaCircle
   layers:
   - Default
   - TransparentFX

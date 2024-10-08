@@ -11,12 +11,10 @@ public class MovimientoConSlide : MonoBehaviour
     public LayerMask layerMask;
     public Animator anim;
     public GameObject hitEffectPrefab;
-    public UnityEvent onWallHit, onChocoConTrampa, onChocoEsquina;
-    public Transform cuerpo;
+    public UnityEvent onWallHit, onChocoConTrampa, onChocoEsquina, onAreaCircle;
+    public Transform cuerpo, brazo;
     public SpriteRenderer SPCuerpo;
     public Sprite normalSprite;
-
-
     bool moviendose;
     bool pegadoAPared;
     Vector3 siguienteDireccion;
@@ -143,6 +141,7 @@ public class MovimientoConSlide : MonoBehaviour
             onChocoEsquina.Invoke();
             SPCuerpo.flipX = false;
             cuerpo.transform.localScale = new Vector3(0.204500005f, 0.204500005f, 0.204500005f);
+
         }
         else if (collision.gameObject.CompareTag("EsquinaSD"))
         {
@@ -159,6 +158,10 @@ public class MovimientoConSlide : MonoBehaviour
             cuerpo.transform.localScale = new Vector3(0.204500005f, 0.204500005f, 0.204500005f);
             Quaternion rotacion = Quaternion.Euler(0f, 0f, 180f);
             cuerpo.transform.localRotation *= rotacion;
+        }
+        else if (collision.gameObject.CompareTag("AreaCircle"))
+        {
+            onAreaCircle.Invoke();
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -189,6 +192,17 @@ public class MovimientoConSlide : MonoBehaviour
             Quaternion rotacion = Quaternion.Euler(0f, 0f, 0f);
             cuerpo.transform.localRotation = rotacion;
             SPCuerpo.sprite = normalSprite;
+        }
+        else if (collision.gameObject.CompareTag("AreaCircle"))
+        {
+            SPCuerpo.sprite = normalSprite;
+        }
+    }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("AreaCircle"))
+        {
+            onAreaCircle.Invoke();
         }
     }
     void AnimacionAterrizaje()
@@ -224,5 +238,24 @@ public class MovimientoConSlide : MonoBehaviour
     {
         onChocoConTrampa.Invoke();
     }
-
+    public void RotarIzquierda()
+    {
+        Quaternion rotacioniz = Quaternion.Euler(0f,0f,180f);
+        brazo.transform.localRotation = rotacioniz;
+    }
+    public void RotarDerecha()
+    {
+        Quaternion rotacionder = Quaternion.Euler(0f,0f,0f);
+        brazo.transform.localRotation = rotacionder;
+    }
+    public void RotarArriba()
+    {
+        Quaternion rotacionarriba = Quaternion.Euler(0f, 0f, 90f);
+        brazo.transform.localRotation = rotacionarriba;
+    }
+    public void RotarAbajo()
+    {
+        Quaternion rotacionabajo = Quaternion.Euler(0f, 0f,-90f);
+        brazo.transform.localRotation = rotacionabajo;
+    }
 }
