@@ -53,7 +53,7 @@ public class TouchSlide : MonoBehaviour
 
             if (porcentajeDesplazamientoX < minimoPorcentajeDesplazamiento && porcentajeDesplazamientoY < minimoPorcentajeDesplazamiento)
             {
-                print("se movio muy poquito");
+                //print("se movio muy poquito");
                 return;
             }
 
