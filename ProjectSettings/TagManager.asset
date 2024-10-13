@@ -11,6 +11,9 @@ TagManager:
   - EsquinaII
   - EsquinaSI
   - AreaCircle
+  - bala
+  - Pared
+  - Enemy
   layers:
   - Default
   - TransparentFX

@@ -6,6 +6,33 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Gym.unity
+    path: Assets/Scenes/Inicio.unity
+    guid: 800cf872932c09b4287b67c777e383cf
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Nivel 1.unity
+    guid: 5c09a079fbac1414d8dca8f4c3416f94
+  - enabled: 1
+    path: Assets/Scenes/Nivel 2.unity
+    guid: b8983b6ed91e0794489774836701f733
+  - enabled: 1
+    path: Assets/Scenes/Nivel 3.unity
+    guid: 2a9533979b376e54e83de0436cc1d167
+  - enabled: 1
+    path: Assets/Scenes/Nivel 4.unity
+    guid: efb6ad39e76ed8546956416c82a69bc8
+  - enabled: 1
+    path: Assets/Scenes/Nivel 5.unity
+    guid: 5c4e368f8f0bfcb44aabce48c1cc982b
+  - enabled: 1
+    path: Assets/Scenes/Nivel 6.unity
+    guid: 10ff300f443ddfa4ea40356479b41155
+  - enabled: 1
+    path: Assets/Scenes/SeleccionLevel.unity
+    guid: 8b17967236d8d0441bcb60f4d4390ec0
+  - enabled: 1
+    path: Assets/Scenes/Tienda.unity
+    guid: 022d859e7b7c5a0448bc27b5ef834643
   m_configObjects: {}
