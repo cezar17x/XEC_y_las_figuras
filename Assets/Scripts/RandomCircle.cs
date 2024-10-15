@@ -6,7 +6,6 @@ using UnityEngine.Tilemaps;
 public class RandomCircle : MonoBehaviour
 {
     public float velocidad = 2f;
-    public LayerMask capa;
     private List<Vector3> puntosvacios = new List<Vector3>();
     public Vector3 objetivoactual;
     public Tilemap tilemap;
@@ -46,24 +45,15 @@ public class RandomCircle : MonoBehaviour
             objetivoactual = Vector3.zero;
         }
     }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        // si el npc choca con algo en la capa de colision, elegir un nuevo objetivo aleatorio
-        if (capa == collision.gameObject.layer)
-        {
-            objetivoactual = Vector3.zero;
-        }
-    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (capa == collision.gameObject.layer)
-        {
-            objetivoactual = Vector3.zero;
-        }
-        else if(collision.gameObject.CompareTag("Player"))
+        if(collision.gameObject.CompareTag("Player"))
         {
             collision.gameObject.GetComponent<VidaPlayer>().Matar();
+        }
+        else if (collision.gameObject.CompareTag("Pared"))
+        {
+            objetivoactual = Vector3.zero;
         }
     }
 }

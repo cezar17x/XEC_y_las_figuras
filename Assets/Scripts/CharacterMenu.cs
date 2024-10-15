@@ -16,7 +16,10 @@ public class CharacterMenu : MonoBehaviour
         equipButton.GetComponentInChildren<TextMeshProUGUI>().text = "EQUIPAR";
         UpdateUI();
     }
-
+    private void Update()
+    {
+        UpdateUI();
+    }
     // Actualiza la UI con el estado del personaje
     void UpdateUI()
     {

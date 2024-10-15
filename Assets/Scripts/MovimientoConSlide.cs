@@ -7,7 +7,7 @@ public class MovimientoConSlide : MonoBehaviour
     public LayerMask layerMask;
     public Animator anim;
     public GameObject hitEffectPrefab;
-    public UnityEvent onWallHit, onChocoConTrampa, onChocoEsquina, onAreaCircle, onSalgoEsquina;
+    public UnityEvent onWallHit, onChocoConTrampa, onChocoEsquina, onAreaCircle, onSalgoEsquina, onEnter, onStay, onExit, onEnter1, onStay1, onExit1, onEnter2, onStay2, onExit2;
     public Transform cuerpo, brazo;
     public SpriteRenderer SPCuerpo;
     public Sprite normalSprite;
@@ -157,9 +157,13 @@ public class MovimientoConSlide : MonoBehaviour
                     cuerpo.transform.localRotation = rotacion;
             }
             else if (collision.gameObject.CompareTag("AreaCircle"))
-            {
                 onAreaCircle.Invoke();
-            }
+            else if(collision.gameObject.CompareTag("Tutorial"))
+            onEnter.Invoke();
+        else if (collision.gameObject.CompareTag("Tutorial2"))
+            onEnter1.Invoke();
+        else if (collision.gameObject.CompareTag("Tutorial3"))
+            onEnter2.Invoke();
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -198,6 +202,13 @@ public class MovimientoConSlide : MonoBehaviour
             {
                 SPCuerpo.sprite = normalSprite;
             }
+            else if (collision.gameObject.CompareTag("Tutorial"))
+            onExit.Invoke();
+            else if(collision.gameObject.CompareTag("Tutorial2"))
+            onExit1.Invoke();
+        else if (collision.gameObject.CompareTag("Tutorial3"))
+            onExit2.Invoke();
+
     }
     private void OnTriggerStay2D(Collider2D collision)
     {
@@ -205,6 +216,13 @@ public class MovimientoConSlide : MonoBehaviour
         {
             onAreaCircle.Invoke();
         }
+        else if (collision.gameObject.CompareTag("Tutorial"))
+            onStay.Invoke();
+        else if (collision.gameObject.CompareTag("Tutorial2"))
+            onStay1.Invoke();
+        else if (collision.gameObject.CompareTag("Tutorial3"))
+            onStay2.Invoke();
+
     }
     void AnimacionAterrizaje()
     {

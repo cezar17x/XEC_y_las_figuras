@@ -43,7 +43,7 @@ public class Bomba : MonoBehaviour
     }
     IEnumerator Explotar()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(3f);
         DestruirTilemapsEnRango();
         Destroy(gameObject);
     }

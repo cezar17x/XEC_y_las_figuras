@@ -163,3 +163,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   estrellasCollect: {fileID: 0}
   contadorGlobal: {fileID: 0}
+  Destello: {fileID: 1645096362711183766, guid: a969b526aea77c24dbd4560ebc07dab7, type: 3}

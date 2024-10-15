@@ -2013,7 +2013,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1244167988054596579
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2831,6 +2831,33 @@ MonoBehaviour:
   onSalgoEsquina:
     m_PersistentCalls:
       m_Calls: []
+  onEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  onStay:
+    m_PersistentCalls:
+      m_Calls: []
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onEnter1:
+    m_PersistentCalls:
+      m_Calls: []
+  onStay1:
+    m_PersistentCalls:
+      m_Calls: []
+  onExit1:
+    m_PersistentCalls:
+      m_Calls: []
+  onEnter2:
+    m_PersistentCalls:
+      m_Calls: []
+  onStay2:
+    m_PersistentCalls:
+      m_Calls: []
+  onExit2:
+    m_PersistentCalls:
+      m_Calls: []
   cuerpo: {fileID: 3022702114646327229}
   brazo: {fileID: 8310478998839011938}
   SPCuerpo: {fileID: 6334087686258042390}
@@ -2974,18 +3001,13 @@ MonoBehaviour:
   velocidadProyectil: 15
   municionActual: 6
   municionMaxima: 6
-  imagenesMunicion:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  contador: 0
   layerObjetivo:
     serializedVersion: 2
     m_Bits: 64
   distanciaDisparo: 50
   puedeDisparar: 1
+  contadorBalas: {fileID: 0}
 --- !u!114 &4750161061778638023
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3001,19 +3023,7 @@ MonoBehaviour:
   particleEffect: {fileID: 1645096362711183766, guid: bbe411f4127e5464fae76d1351083ac3, type: 3}
   onMuerte:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 9072038964420730543}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: set_isStatic
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &3614436952418269916
 MonoBehaviour:
   m_ObjectHideFlags: 0

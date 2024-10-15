@@ -1346,7 +1346,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4494694573490243440
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2462,6 +2462,33 @@ MonoBehaviour:
   onSalgoEsquina:
     m_PersistentCalls:
       m_Calls: []
+  onEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  onStay:
+    m_PersistentCalls:
+      m_Calls: []
+  onExit:
+    m_PersistentCalls:
+      m_Calls: []
+  onEnter1:
+    m_PersistentCalls:
+      m_Calls: []
+  onStay1:
+    m_PersistentCalls:
+      m_Calls: []
+  onExit1:
+    m_PersistentCalls:
+      m_Calls: []
+  onEnter2:
+    m_PersistentCalls:
+      m_Calls: []
+  onStay2:
+    m_PersistentCalls:
+      m_Calls: []
+  onExit2:
+    m_PersistentCalls:
+      m_Calls: []
   cuerpo: {fileID: 4495271257367276347}
   brazo: {fileID: 4077016721850174293}
   SPCuerpo: {fileID: 6204663268581160194}
@@ -2605,18 +2632,13 @@ MonoBehaviour:
   velocidadProyectil: 15
   municionActual: 6
   municionMaxima: 6
-  imagenesMunicion:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  contador: 0
   layerObjetivo:
     serializedVersion: 2
     m_Bits: 64
   distanciaDisparo: 50
   puedeDisparar: 1
+  contadorBalas: {fileID: 0}
 --- !u!114 &518682935139094611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2632,19 +2654,7 @@ MonoBehaviour:
   particleEffect: {fileID: 1645096362711183766, guid: bbe411f4127e5464fae76d1351083ac3, type: 3}
   onMuerte:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6352600568335634222}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &4717420174588523231
 MonoBehaviour:
   m_ObjectHideFlags: 0

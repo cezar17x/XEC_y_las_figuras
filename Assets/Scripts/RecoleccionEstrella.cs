@@ -7,6 +7,7 @@ public class RecoleccionEstrella : MonoBehaviour
 {
     public EstrellasCollect estrellasCollect;
     public ContadorGlobal contadorGlobal;
+    public GameObject Destello;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -15,6 +16,7 @@ public class RecoleccionEstrella : MonoBehaviour
             estrellasCollect.CollectStars(1);
             Destroy(gameObject);
             contadorGlobal.SumarEstrellas(1);
+            Instantiate(Destello,transform.position, Quaternion.identity);
         }
     }
 }

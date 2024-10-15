@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,20 +9,22 @@ public class DisparoTouch : MonoBehaviour
     public GameObject proyectilPrefab;
     public Transform puntoDisparo;
     public float velocidadProyectil = 10f;
-    public int municionActual = 6; 
-    public int municionMaxima = 6;
-    public List<Image> imagenesMunicion;
+    public int municionActual = 6, municionMaxima = 6, contador = 0; 
     private float tiempoEntreTaps = 0.3f;
     private float ultimoTap = 0f;
     public LayerMask layerObjetivo;
     public float distanciaDisparo = 100f;
     public bool puedeDisparar = false;
+    public TextMeshProUGUI contadorBalas;
 
     void Start()
     {
-        ActualizarUI(); 
+        ActualizarUI(municionActual); 
     }
-
+    public void CambiarVariable(bool ticket)
+    {
+        puedeDisparar = ticket;
+    }
     void Update()
     {
         if (!puedeDisparar) return;
@@ -67,7 +70,7 @@ public class DisparoTouch : MonoBehaviour
                 //Debug.Log("No se impactó con ningún objeto en el LayerMask.");
             }
             municionActual--;
-            ActualizarUI();
+            ActualizarUI(municionActual);
         }
     }
     IEnumerator DestruirTime(GameObject bala)
@@ -78,8 +81,8 @@ public class DisparoTouch : MonoBehaviour
     }
     public void RecogerMunicion(int cantidad)
     {
-        municionActual = Mathf.Clamp(municionActual + cantidad, 0, municionMaxima); // Aumentar la munición sin superar el máximo
-        ActualizarUI();
+        municionActual = Mathf.Clamp(municionActual + cantidad, 0, municionMaxima);
+        ActualizarUI(municionActual);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -90,19 +93,8 @@ public class DisparoTouch : MonoBehaviour
         }
     }
 
-    void ActualizarUI()
+    void ActualizarUI(int cantidad)
     {
-        // Mostrar o esconder imágenes de balas dependiendo de la munición actual
-        for (int i = 0; i < imagenesMunicion.Count; i++)
-        {
-            if (i < municionActual)
-            {
-                imagenesMunicion[i].enabled = true; 
-            }
-            else
-            {
-                imagenesMunicion[i].enabled = false;
-            }
-        }
+        contadorBalas.text = cantidad.ToString();
     }
 }
