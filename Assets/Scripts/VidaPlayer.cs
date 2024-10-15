@@ -11,5 +11,6 @@ public class VidaPlayer : MonoBehaviour
     {
         onMuerte.Invoke();
         Instantiate(particleEffect, transform.position,Quaternion.identity);
+        Destroy(gameObject);
     }
 }

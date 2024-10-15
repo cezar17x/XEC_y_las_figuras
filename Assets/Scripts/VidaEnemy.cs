@@ -24,6 +24,7 @@ public class VidaEnemy : MonoBehaviour
         {
             onMuerte.Invoke();
             Instantiate(particleEffect, transform.position, Quaternion.identity);
+            Destroy(gameObject, 1);
         }
     }
 }

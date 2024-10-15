@@ -13,7 +13,7 @@ public class Final : MonoBehaviour
     {
         canvasNextLevel.SetActive(false);
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
@@ -21,6 +21,7 @@ public class Final : MonoBehaviour
             collision.gameObject.SetActive(false);
             levelManager.CompleteLevel(SceneManager.GetActiveScene().buildIndex);
             onTerminar.Invoke();
+            Destroy(collision.gameObject);
         }
     }
 }

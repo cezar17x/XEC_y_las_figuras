@@ -1,8 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Net;
-using Unity.VisualScripting;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 public class MovimientoConSlide : MonoBehaviour
 {
@@ -11,7 +7,7 @@ public class MovimientoConSlide : MonoBehaviour
     public LayerMask layerMask;
     public Animator anim;
     public GameObject hitEffectPrefab;
-    public UnityEvent onWallHit, onChocoConTrampa, onChocoEsquina, onAreaCircle;
+    public UnityEvent onWallHit, onChocoConTrampa, onChocoEsquina, onAreaCircle, onSalgoEsquina;
     public Transform cuerpo, brazo;
     public SpriteRenderer SPCuerpo;
     public Sprite normalSprite;
@@ -130,73 +126,78 @@ public class MovimientoConSlide : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("EsquinaID"))
-        {
-            onChocoEsquina.Invoke();
-            SPCuerpo.flipX = true;
-            cuerpo.transform.localScale = new Vector3(0.204500005f, 0.204500005f, 0.204500005f);
-        }
-        else if (collision.gameObject.CompareTag("EsquinaII"))
-        {
-            onChocoEsquina.Invoke();
-            SPCuerpo.flipX = false;
-            cuerpo.transform.localScale = new Vector3(0.204500005f, 0.204500005f, 0.204500005f);
+            if (collision.gameObject.CompareTag("EsquinaID"))
+            {
+                onChocoEsquina.Invoke();
+                SPCuerpo.flipX = true;
+                cuerpo.transform.localScale = new Vector3(0.204500005f, 0.204500005f, 0.204500005f);
+           
+            }
+            else if (collision.gameObject.CompareTag("EsquinaII"))
+            {
+                    onChocoEsquina.Invoke();
+                    SPCuerpo.flipX = false;
+                    cuerpo.transform.localScale = new Vector3(0.204500005f, 0.204500005f, 0.204500005f);
+            }
+            else if (collision.gameObject.CompareTag("EsquinaSD"))
+            {
 
-        }
-        else if (collision.gameObject.CompareTag("EsquinaSD"))
-        {
-            onChocoEsquina.Invoke();
-            SPCuerpo.flipX = false;
-            cuerpo.transform.localScale = new Vector3(0.204500005f, 0.204500005f, 0.204500005f);
-            Quaternion rotacion = Quaternion.Euler(0f, 0f, 180f);
-            cuerpo.transform.localRotation *= rotacion;
-        }
-        else if (collision.gameObject.CompareTag("EsquinaSI"))
-        {
-            onChocoEsquina.Invoke();
-            SPCuerpo.flipX = true;
-            cuerpo.transform.localScale = new Vector3(0.204500005f, 0.204500005f, 0.204500005f);
-            Quaternion rotacion = Quaternion.Euler(0f, 0f, 180f);
-            cuerpo.transform.localRotation *= rotacion;
-        }
-        else if (collision.gameObject.CompareTag("AreaCircle"))
-        {
-            onAreaCircle.Invoke();
-        }
+                    onChocoEsquina.Invoke();
+                    SPCuerpo.flipX = false;
+                    cuerpo.transform.localScale = new Vector3(0.204500005f, 0.204500005f, 0.204500005f);
+                    Quaternion rotacion = Quaternion.Euler(0f, 0f, 180f);
+                    cuerpo.transform.localRotation = rotacion;
+            }
+            else if (collision.gameObject.CompareTag("EsquinaSI"))
+            {
+                    onChocoEsquina.Invoke();
+                    SPCuerpo.flipX = true;
+                    cuerpo.transform.localScale = new Vector3(0.204500005f, 0.204500005f, 0.204500005f);
+                    Quaternion rotacion = Quaternion.Euler(0f, 0f, 180f);
+                    cuerpo.transform.localRotation = rotacion;
+            }
+            else if (collision.gameObject.CompareTag("AreaCircle"))
+            {
+                onAreaCircle.Invoke();
+            }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("EsquinaID"))
-        {
-            SPCuerpo.flipX = false;
-            cuerpo.transform.localScale = normalScale;
-            SPCuerpo.sprite = normalSprite;
-        }
-        else if (collision.gameObject.CompareTag("EsquinaII"))
-        {
-            SPCuerpo.flipX = false;
-            cuerpo.transform.localScale = normalScale;
-            SPCuerpo.sprite = normalSprite;
-        }
-        else if (collision.gameObject.CompareTag("EsquinaSD"))
-        {
-            SPCuerpo.flipX = false;
-            cuerpo.transform.localScale = normalScale;
-            cuerpo.transform.localRotation = Quaternion.Euler(0, 0, 0);
-            SPCuerpo.sprite = normalSprite;
-        }
-        else if (collision.gameObject.CompareTag("EsquinaSI"))
-        {
-            SPCuerpo.flipX = false;
-            cuerpo.transform.localScale = normalScale;
-            Quaternion rotacion = Quaternion.Euler(0f, 0f, 0f);
-            cuerpo.transform.localRotation = rotacion;
-            SPCuerpo.sprite = normalSprite;
-        }
-        else if (collision.gameObject.CompareTag("AreaCircle"))
-        {
-            SPCuerpo.sprite = normalSprite;
-        }
+            if (collision.gameObject.CompareTag("EsquinaID"))
+            {
+                onSalgoEsquina.Invoke();
+                SPCuerpo.flipX = false;
+                cuerpo.transform.localScale = normalScale;
+                SPCuerpo.sprite = normalSprite;
+            }
+            else if (collision.gameObject.CompareTag("EsquinaII"))
+            {
+                onSalgoEsquina.Invoke();
+                SPCuerpo.flipX = false;
+                cuerpo.transform.localScale = normalScale;
+                SPCuerpo.sprite = normalSprite;
+            }
+            else if (collision.gameObject.CompareTag("EsquinaSD"))
+            {
+                onSalgoEsquina.Invoke();
+                SPCuerpo.flipX = false;
+                cuerpo.transform.localScale = normalScale;
+                cuerpo.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                SPCuerpo.sprite = normalSprite;
+            }
+            else if (collision.gameObject.CompareTag("EsquinaSI"))
+            {
+                onSalgoEsquina.Invoke();
+                SPCuerpo.flipX = false;
+                cuerpo.transform.localScale = normalScale;
+                Quaternion rotacion = Quaternion.Euler(0f, 0f, 0f);
+                cuerpo.transform.localRotation = rotacion;
+                SPCuerpo.sprite = normalSprite;
+            }
+            else if (collision.gameObject.CompareTag("AreaCircle"))
+            {
+                SPCuerpo.sprite = normalSprite;
+            }
     }
     private void OnTriggerStay2D(Collider2D collision)
     {

@@ -312,13 +312,13 @@ MonoBehaviour:
   onMuerte:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2395033837266275028}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 917308234690326016}
+        m_TargetAssemblyTypeName: VidaEnemy, Assembly-CSharp
+        m_MethodName: Destroy
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 2395033837266275028}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

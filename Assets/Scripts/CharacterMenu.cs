@@ -11,6 +11,7 @@ public class CharacterMenu : MonoBehaviour
 
     void Start()
     {
+        equipButton.interactable = true;
         unlockButton.GetComponentInChildren<TextMeshProUGUI>().text = "DESBLOQUEAR";
         equipButton.GetComponentInChildren<TextMeshProUGUI>().text = "EQUIPAR";
         UpdateUI();

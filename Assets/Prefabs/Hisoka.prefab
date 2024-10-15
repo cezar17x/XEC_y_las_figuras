@@ -1868,6 +1868,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onSalgoEsquina:
+    m_PersistentCalls:
+      m_Calls: []
   cuerpo: {fileID: 1080601201679370520}
   brazo: {fileID: 7126122572543099105}
   SPCuerpo: {fileID: 7095701589461254254}

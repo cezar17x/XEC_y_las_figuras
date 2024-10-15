@@ -642,9 +642,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objeto: {fileID: 1666330630675246385}
-  advertencia: {fileID: 5274764420150233093}
   alturaInicial: 10
   tiempoAdvertencia: 2
+  advertenciaCanvas: {fileID: 5585629779540583887}
 --- !u!114 &141511966717014586
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -846,6 +846,7 @@ GameObject:
   - component: {fileID: 5779737544925024721}
   - component: {fileID: 368473051705764039}
   - component: {fileID: 3672511002237193946}
+  - component: {fileID: 5585629779540583887}
   m_Layer: 0
   m_Name: Advertencia
   m_TagString: Untagged
@@ -936,6 +937,18 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!225 &5585629779540583887
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2824666949148050631}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &3666666852732953761
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,7 +10,6 @@ public class CommerceSystem : MonoBehaviour
     private void Start()
     {
         LoadGems();
-        DontDestroyOnLoad(gameObject);  
     }
 
     // Método para recolectar gemas

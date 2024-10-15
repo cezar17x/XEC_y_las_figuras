@@ -2421,6 +2421,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onSalgoEsquina:
+    m_PersistentCalls:
+      m_Calls: []
   cuerpo: {fileID: 3022702114646327229}
   brazo: {fileID: 8310478998839011938}
   SPCuerpo: {fileID: 6334087686258042390}
@@ -2594,7 +2597,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 9072038964420730543}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
+        m_MethodName: set_isStatic
         m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

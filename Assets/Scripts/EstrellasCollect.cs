@@ -8,7 +8,6 @@ public class EstrellasCollect : MonoBehaviour
     private void Start()
     {
         LoadStars();
-        DontDestroyOnLoad(gameObject);  
     }
     // Método para recolectar estrellas
     public void CollectStars(int amount)
