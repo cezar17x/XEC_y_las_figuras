@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class DisparoTouch : MonoBehaviour
@@ -10,12 +11,12 @@ public class DisparoTouch : MonoBehaviour
     public Transform puntoDisparo;
     public float velocidadProyectil = 10f;
     public int municionActual = 6, municionMaxima = 6, contador = 0; 
-    private float tiempoEntreTaps = 0.3f;
-    private float ultimoTap = 0f;
+    private float tiempoEntreTaps = 0.3f,ultimoTap = 0f;
     public LayerMask layerObjetivo;
     public float distanciaDisparo = 100f;
     public bool puedeDisparar = false;
     public TextMeshProUGUI contadorBalas;
+    public UnityEvent onDisparo;
 
     void Start()
     {
@@ -46,28 +47,19 @@ public class DisparoTouch : MonoBehaviour
         
         if (municionActual > 0)
         {
-            
             RaycastHit2D hit = Physics2D.Raycast(puntoDisparo.position, puntoDisparo.right, distanciaDisparo, layerObjetivo);
-
-            
             if (hit.collider != null)
             {
-                //Debug.Log("Impacto en: " + hit.collider.name);
-
-                
                 GameObject proyectil = Instantiate(proyectilPrefab, puntoDisparo.position, Quaternion.identity);
-
-                // Calcular la dirección hacia el objetivo
                 Vector2 direccionObjetivo = (hit.point - (Vector2)puntoDisparo.position).normalized;
-
-                
                 Rigidbody2D rb = proyectil.GetComponent<Rigidbody2D>();
                 rb.velocity = direccionObjetivo * velocidadProyectil;
                 StartCoroutine(DestruirTime(proyectil));
+                onDisparo.Invoke(); 
             }
             else
             {
-                //Debug.Log("No se impactó con ningún objeto en el LayerMask.");
+                Debug.Log("No se impactó con ningún objeto en el LayerMask.");
             }
             municionActual--;
             ActualizarUI(municionActual);

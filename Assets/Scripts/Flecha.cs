@@ -9,6 +9,7 @@ public class Flecha : MonoBehaviour
     public Transform root;
     private bool movingRight = true;
     public Vector3Int posicionInicial;
+    public LayerMask layerPared;
 
     void Start()
     {
@@ -50,7 +51,12 @@ public class Flecha : MonoBehaviour
         if (collision.gameObject.CompareTag("Pared"))
         {
             movingRight = !movingRight;
-
+            Quaternion rotacion = Quaternion.Euler(0f, 0f, 180f);
+            root.transform.localRotation = rotacion;
+        }
+        else if (collision.gameObject.layer == layerPared)
+        {
+            movingRight = !movingRight;
             Quaternion rotacion = Quaternion.Euler(0f, 0f, 180f);
             root.transform.localRotation = rotacion;
         }

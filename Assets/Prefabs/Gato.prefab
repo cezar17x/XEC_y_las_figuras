@@ -2223,7 +2223,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objetoAInstanciar: {fileID: 6795499483964574395, guid: 4eb60d802118cc645841fe87c346972f, type: 3}
   imagenLlenadoRadial: {fileID: 7638773197697375910}
-  tiempoPulsacionRequerido: 5
+  tiempoPulsacionRequerido: 2
   puedeBombardear: 1
 --- !u!1 &6077268240563846676
 GameObject:

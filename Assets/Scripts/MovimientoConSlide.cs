@@ -7,7 +7,8 @@ public class MovimientoConSlide : MonoBehaviour
     public LayerMask layerMask;
     public Animator anim;
     public GameObject hitEffectPrefab;
-    public UnityEvent onWallHit, onChocoConTrampa, onChocoEsquina, onAreaCircle, onSalgoEsquina, onEnter, onStay, onExit, onEnter1, onStay1, onExit1, onEnter2, onStay2, onExit2;
+    public UnityEvent onWallHit, onChocoConTrampa, onChocoEsquina, onAreaCircle, onSalgoEsquina, 
+    onEnter, onStay, onExit, onEnter1, onStay1, onExit1, onEnter2, onStay2, onExit2, onStar;
     public Transform cuerpo, brazo;
     public SpriteRenderer SPCuerpo;
     public Sprite normalSprite;
@@ -160,10 +161,12 @@ public class MovimientoConSlide : MonoBehaviour
                 onAreaCircle.Invoke();
             else if(collision.gameObject.CompareTag("Tutorial"))
             onEnter.Invoke();
-        else if (collision.gameObject.CompareTag("Tutorial2"))
+            else if (collision.gameObject.CompareTag("Tutorial2"))
             onEnter1.Invoke();
-        else if (collision.gameObject.CompareTag("Tutorial3"))
+            else if (collision.gameObject.CompareTag("Tutorial3"))
             onEnter2.Invoke();
+            else if(collision.gameObject.CompareTag("Estrella"))
+            onStar.Invoke();
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
