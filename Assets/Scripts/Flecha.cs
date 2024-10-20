@@ -62,8 +62,8 @@ public class Flecha : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<VidaPlayer>().Matar();
             Destroy(collision.gameObject, 2);
+            //Instanciar particula de muerte;
         }
     }
 }

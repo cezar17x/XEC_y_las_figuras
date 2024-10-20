@@ -6,7 +6,7 @@ using UnityEngine;
 public class RecoleccionEstrella : MonoBehaviour
 {
     public EstrellasCollect estrellasCollect;
-    public ContadorGlobal contadorGlobal;
+    public GameManager contadorGlobal;
     public GameObject Destello;
 
     private void OnTriggerEnter2D(Collider2D collision)

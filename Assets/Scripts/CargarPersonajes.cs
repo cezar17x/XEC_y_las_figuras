@@ -3,10 +3,9 @@ using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
-public class CargarPersonajes : MonoBehaviour
+public class CargarPersonajes : GameManager
 {
-    public GameObject normal, ninja, gato, arcos, hisoka, gojo;
-    private void Update()
+    public override void CargarCharacter()
     {
         bool normalstr = PlayerPrefs.GetString("EquippedCharacter", "") == "Normal";
         bool ninjastr = PlayerPrefs.GetString("EquippedCharacter", "") == "Ninja";

@@ -1,12 +1,9 @@
 using Cinemachine;
 using UnityEngine;
 
-public class SeguirVariantes : MonoBehaviour
+public class SeguirVariantes : GameManager
 {
-    public CinemachineVirtualCamera virtualCamera;
-    public GameObject[] playerVariants;
-
-    private void Update()
+    public override void _SeguirVariantes()
     {
         foreach (GameObject player in playerVariants)
         {

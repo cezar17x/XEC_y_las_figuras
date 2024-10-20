@@ -1,25 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using UnityEngine;
 
-public class ContadorGlobal : MonoBehaviour
+public class ContadorGlobal : GameManager
 {
-    private int contadorGem = 0;
-    private int contadorStar = 0;
-    public TextMeshProUGUI stars, gems, gemsUI;
-    public void SumarGemas(int cantidad)
+    MostrarGemas mostrarFinal;
+    public override void SumarGemas(int cantidad)
     {
-        contadorGem += cantidad;
+        base.SumarGemas(cantidad);
     }
-    public void SumarEstrellas(int cantidad)
+    public override void SumarEstrellas(int cantidad)
     {
-        contadorStar += cantidad;
+        base.SumarEstrellas(cantidad);
     }
-    private void Update()
+    public override void ActualizarUI()
     {
+        mostrarFinal = new MostrarGemas();
         stars.text = "+" + contadorStar.ToString();
         gems.text = "+" + contadorGem.ToString();
         gemsUI.text = contadorGem.ToString();
+        mostrarFinal.ContadorFinal();
     }
 }

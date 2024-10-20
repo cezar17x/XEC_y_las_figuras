@@ -2,19 +2,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class Bombardero : MonoBehaviour
+public class Bombardero : Player
 {
-    public GameObject objetoAInstanciar;
-    public Image imagenLlenadoRadial;
-    public float tiempoPulsacionRequerido = 5f;
     float tiempoPulsacionActual = 0f;
     bool dedoPulsado = false;
-    public bool puedeBombardear = false;
-
-    void Update()
+    public override void Bombardear()
     {
         if (!puedeBombardear) return;
-        dedoPulsado = (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Stationary)? true : false;
+        dedoPulsado = (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Stationary) ? true : false;
         if (dedoPulsado)
         {
             tiempoPulsacionActual += Time.deltaTime;
@@ -31,7 +26,6 @@ public class Bombardero : MonoBehaviour
         // Actualizar la imagen de llenado radial
         imagenLlenadoRadial.fillAmount = tiempoPulsacionActual / tiempoPulsacionRequerido;
     }
-
     void InstanciarObjeto()
     {
         Instantiate(objetoAInstanciar, transform.position, Quaternion.identity);

@@ -36,11 +36,7 @@ public class Hexagono : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            VidaPlayer vida = collision.gameObject.GetComponent<VidaPlayer>();
-            if (vida != null)
-            {
-                vida.Matar();
-            }
+            //Destruir Player;
         }
     }
 }

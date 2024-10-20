@@ -1,32 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
 
-public class DisparoTouch : MonoBehaviour
+public class DisparoTouch : Player
 {
-    public GameObject proyectilPrefab;
-    public Transform puntoDisparo;
-    public float velocidadProyectil = 10f;
-    public int municionActual = 6, municionMaxima = 6, contador = 0; 
-    private float tiempoEntreTaps = 0.3f,ultimoTap = 0f;
-    public LayerMask layerObjetivo;
-    public float distanciaDisparo = 100f;
-    public bool puedeDisparar = false;
-    public TextMeshProUGUI contadorBalas;
-    public UnityEvent onDisparo;
-
-    void Start()
-    {
-        ActualizarUI(municionActual); 
-    }
-    public void CambiarVariable(bool ticket)
-    {
-        puedeDisparar = ticket;
-    }
-    void Update()
+    private float tiempoEntreTaps = 0.3f, ultimoTap = 0f;
+    public override void Disparar()
     {
         if (!puedeDisparar) return;
         if (puedeDisparar)
@@ -40,7 +20,7 @@ public class DisparoTouch : MonoBehaviour
                 }
                 ultimoTap = Time.time; // Actualizar el tiempo del último toque
             }
-        }   
+        }
     }
     void DispararRaycastConProyectil()
     {
@@ -85,8 +65,8 @@ public class DisparoTouch : MonoBehaviour
         }
     }
 
-    void ActualizarUI(int cantidad)
-    {
+     public void ActualizarUI(int cantidad)
+     {
         contadorBalas.text = cantidad.ToString();
-    }
+     }
 }

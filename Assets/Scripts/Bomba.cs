@@ -10,10 +10,9 @@ public class Bomba : MonoBehaviour
     public Vector3 offset;
     public int maxDistance = 1;
     public LayerMask capaTilemap;
-    private Tilemap tilemap;
+    public Tilemap tilemap;
     private void Start()
     {
-        tilemap = GameObject.FindAnyObjectByType<Tilemap>();
         DestruirTilemapsEnRango();
         StartCoroutine(Explotar());
         StopCoroutine(Explotar());

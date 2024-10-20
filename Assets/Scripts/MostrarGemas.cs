@@ -1,16 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using UnityEngine;
 
-public class MostrarGemas : MonoBehaviour
+public class MostrarGemas : GameManager
 {
-    public TextMeshProUGUI texto, texto2;
-    private void Update()
+    public void ContadorFinal()
     {
         int currentGems = FindObjectOfType<CommerceSystem>().GetGems();
-        texto.text = currentGems.ToString();
+        textoFinalGemas.text = currentGems.ToString();
         int currentStars = FindAnyObjectByType<EstrellasCollect>().GetStars();
-        texto2.text = currentStars.ToString();
+        textoFinalStars.text = currentStars.ToString();
     }
 }

@@ -697,53 +697,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1359342249502372611, guid: 3a30d623d54edb84b85c326b1d49d0da, type: 3}
   m_PrefabInstance: {fileID: 3744568426287480207}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &77174948
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 77174949}
-  - component: {fileID: 77174950}
-  m_Layer: 0
-  m_Name: ContadorManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &77174949
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 77174948}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 611643939}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &77174950
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 77174948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cca9b5b1ea93844783280a7c9624757, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stars: {fileID: 1462011027}
-  gems: {fileID: 1325990130}
-  gemsUI: {fileID: 6401898082014479435}
 --- !u!1 &153843828
 GameObject:
   m_ObjectHideFlags: 0
@@ -854,7 +807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commerceSystem: {fileID: 566710053}
-  contadorGlobal: {fileID: 77174950}
+  contadorGlobal: {fileID: 0}
 --- !u!212 &153843833
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1723,7 +1676,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commerceSystem: {fileID: 566710053}
-  contadorGlobal: {fileID: 77174950}
+  contadorGlobal: {fileID: 0}
 --- !u!212 &242358178
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2097,7 +2050,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commerceSystem: {fileID: 566710053}
-  contadorGlobal: {fileID: 77174950}
+  contadorGlobal: {fileID: 0}
 --- !u!212 &275270357
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2272,7 +2225,7 @@ Transform:
   - {fileID: 179345586}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &370356281
+--- !u!1 &359516700
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2280,48 +2233,64 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 370356282}
-  - component: {fileID: 370356283}
+  - component: {fileID: 359516702}
+  - component: {fileID: 359516701}
   m_Layer: 0
-  m_Name: Spawn
+  m_Name: GameManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &370356282
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 370356281}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.4, y: -6.17, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &370356283
+--- !u!114 &359516701
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 370356281}
+  m_GameObject: {fileID: 359516700}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f59a7a163f523884290c2ba0b1a81282, type: 3}
+  m_Script: {fileID: 11500000, guid: db78d93fd161d0843b905953ae098715, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  normal: {fileID: 2005530489}
-  ninja: {fileID: 1702028482}
-  gato: {fileID: 605485938}
-  arcos: {fileID: 1017727183}
-  hisoka: {fileID: 1040023827}
-  gojo: {fileID: 1897234371}
+  normal: {fileID: 0}
+  ninja: {fileID: 0}
+  gato: {fileID: 0}
+  arcos: {fileID: 0}
+  hisoka: {fileID: 0}
+  gojo: {fileID: 0}
+  onGameOver:
+    m_PersistentCalls:
+      m_Calls: []
+  contadorGlobal: {fileID: 0}
+  contadorGem: 0
+  contadorStar: 0
+  Destello: {fileID: 0}
+  stars: {fileID: 0}
+  gems: {fileID: 0}
+  gemsUI: {fileID: 0}
+  textoFinalGemas: {fileID: 0}
+  textoFinalStars: {fileID: 0}
+  pausePanel: {fileID: 0}
+  players: []
+  playerVariants: []
+  virtualCamera: {fileID: 1986626656}
+--- !u!4 &359516702
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 359516700}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.4968691, y: -8.090063, z: -0.077765696}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &420922033
 GameObject:
   m_ObjectHideFlags: 0
@@ -2783,9 +2752,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1850150473}
-  - {fileID: 77174949}
   - {fileID: 566710054}
-  - {fileID: 1608765848}
   - {fileID: 462712549}
   - {fileID: 1057694665}
   m_Father: {fileID: 0}
@@ -2977,7 +2944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commerceSystem: {fileID: 566710053}
-  contadorGlobal: {fileID: 77174950}
+  contadorGlobal: {fileID: 0}
 --- !u!212 &677920374
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3145,7 +3112,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commerceSystem: {fileID: 566710053}
-  contadorGlobal: {fileID: 77174950}
+  contadorGlobal: {fileID: 0}
 --- !u!212 &738913035
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3308,7 +3275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commerceSystem: {fileID: 566710053}
-  contadorGlobal: {fileID: 77174950}
+  contadorGlobal: {fileID: 0}
 --- !u!212 &896667350
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3471,7 +3438,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commerceSystem: {fileID: 566710053}
-  contadorGlobal: {fileID: 77174950}
+  contadorGlobal: {fileID: 0}
 --- !u!212 &967991568
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4262,7 +4229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commerceSystem: {fileID: 566710053}
-  contadorGlobal: {fileID: 77174950}
+  contadorGlobal: {fileID: 0}
 --- !u!212 &1112699451
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4430,7 +4397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commerceSystem: {fileID: 566710053}
-  contadorGlobal: {fileID: 77174950}
+  contadorGlobal: {fileID: 0}
 --- !u!212 &1173934917
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4593,7 +4560,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commerceSystem: {fileID: 566710053}
-  contadorGlobal: {fileID: 77174950}
+  contadorGlobal: {fileID: 0}
 --- !u!212 &1217633306
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4756,7 +4723,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commerceSystem: {fileID: 566710053}
-  contadorGlobal: {fileID: 77174950}
+  contadorGlobal: {fileID: 0}
 --- !u!212 &1263196596
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4937,17 +4904,6 @@ Transform:
   - {fileID: 321345169}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1325990130 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9013218330990324719, guid: d8acd7f752795d0469bf73fc87e98067, type: 3}
-  m_PrefabInstance: {fileID: 2415759868950362255}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1370411358
 GameObject:
   m_ObjectHideFlags: 3
@@ -5346,17 +5302,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7656841950982812058, guid: b799302945b93764a93a59eaf2f35ff2, type: 3}
   m_PrefabInstance: {fileID: 1425099251}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1462011027 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4208670187921032978, guid: d8acd7f752795d0469bf73fc87e98067, type: 3}
-  m_PrefabInstance: {fileID: 2415759868950362255}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1493455625
 GameObject:
   m_ObjectHideFlags: 0
@@ -5835,50 +5780,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1 &1608765846
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1608765848}
-  - component: {fileID: 1608765847}
-  m_Layer: 0
-  m_Name: EstrellaManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1608765847
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1608765846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 849d10f2e3fdc5348b59ed0aa5006315, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1608765848
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1608765846}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.7658134, y: 1.4153051, z: 58.355453}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 611643939}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1614004378 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6254237610154908501, guid: ffa37d72382f7464b8dad5d4133867a0, type: 3}
@@ -6545,7 +6446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commerceSystem: {fileID: 566710053}
-  contadorGlobal: {fileID: 77174950}
+  contadorGlobal: {fileID: 0}
 --- !u!212 &1755344368
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7254,7 +7155,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commerceSystem: {fileID: 566710053}
-  contadorGlobal: {fileID: 77174950}
+  contadorGlobal: {fileID: 0}
 --- !u!212 &1801355820
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7494,7 +7395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commerceSystem: {fileID: 566710053}
-  contadorGlobal: {fileID: 77174950}
+  contadorGlobal: {fileID: 0}
 --- !u!212 &1807864069
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7757,7 +7658,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9e6d158af79d2345bf0e66f3a15dbde, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pause: {fileID: 1941134527}
+  normal: {fileID: 0}
+  ninja: {fileID: 0}
+  gato: {fileID: 0}
+  arcos: {fileID: 0}
+  hisoka: {fileID: 0}
+  gojo: {fileID: 0}
+  onGameOver:
+    m_PersistentCalls:
+      m_Calls: []
+  contadorGlobal: {fileID: 0}
+  contadorGem: 0
+  contadorStar: 0
+  Destello: {fileID: 0}
+  stars: {fileID: 0}
+  gems: {fileID: 0}
+  gemsUI: {fileID: 0}
+  textoFinalGemas: {fileID: 0}
+  textoFinalStars: {fileID: 0}
+  pausePanel: {fileID: 0}
+  players: []
+  playerVariants: []
+  virtualCamera: {fileID: 0}
 --- !u!4 &1861669261 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1789319983648216539, guid: 538f98b0e64e80542a376a6a74135e49, type: 3}
@@ -7777,11 +7699,6 @@ GameObject:
 Transform:
   m_CorrespondingSourceObject: {fileID: 1665883814342563191, guid: 786af37b59bc59d46ad203a616df80c1, type: 3}
   m_PrefabInstance: {fileID: 69318316}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1941134527 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3604134781110897981, guid: c8664ed34f3a23e40b650c7ec9043c55, type: 3}
-  m_PrefabInstance: {fileID: 6482214102655079276}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1957850833 stripped
 Transform:
@@ -8324,7 +8241,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3020784093913591958, guid: 34d1deb879c783a4a8e5ae03911ef0b0, type: 3}
+    - {fileID: 1953719975462289382, guid: 34d1deb879c783a4a8e5ae03911ef0b0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -8414,7 +8333,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df6de41e525195c4187c8fa96aac8352, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  virtualCamera: {fileID: 1986626656}
+  normal: {fileID: 0}
+  ninja: {fileID: 0}
+  gato: {fileID: 0}
+  arcos: {fileID: 0}
+  hisoka: {fileID: 0}
+  gojo: {fileID: 0}
+  onGameOver:
+    m_PersistentCalls:
+      m_Calls: []
+  contadorGlobal: {fileID: 0}
+  contadorGem: 0
+  contadorStar: 0
+  Destello: {fileID: 0}
+  stars: {fileID: 0}
+  gems: {fileID: 0}
+  gemsUI: {fileID: 0}
+  textoFinalGemas: {fileID: 0}
+  textoFinalStars: {fileID: 0}
+  pausePanel: {fileID: 0}
+  players: []
   playerVariants:
   - {fileID: 2005530489}
   - {fileID: 1017727183}
@@ -8422,6 +8360,7 @@ MonoBehaviour:
   - {fileID: 1040023827}
   - {fileID: 1702028482}
   - {fileID: 605485938}
+  virtualCamera: {fileID: 1986626656}
 --- !u!1 &1989311620 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 199972691284578535, guid: ffa37d72382f7464b8dad5d4133867a0, type: 3}
@@ -8537,7 +8476,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commerceSystem: {fileID: 566710053}
-  contadorGlobal: {fileID: 77174950}
+  contadorGlobal: {fileID: 0}
 --- !u!212 &2000706111
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8782,7 +8721,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   commerceSystem: {fileID: 566710053}
-  contadorGlobal: {fileID: 77174950}
+  contadorGlobal: {fileID: 0}
 --- !u!212 &2093972578
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -8998,11 +8937,11 @@ PrefabInstance:
     - target: {fileID: 1537581826187055457, guid: 86bfcccedcd1ab14ba23550132121416, type: 3}
       propertyPath: contadorGlobal
       value: 
-      objectReference: {fileID: 77174950}
+      objectReference: {fileID: 0}
     - target: {fileID: 1537581826187055457, guid: 86bfcccedcd1ab14ba23550132121416, type: 3}
       propertyPath: estrellasCollect
       value: 
-      objectReference: {fileID: 1608765847}
+      objectReference: {fileID: 0}
     - target: {fileID: 7706379422160872351, guid: 86bfcccedcd1ab14ba23550132121416, type: 3}
       propertyPath: m_LocalPosition.x
       value: 4.204
@@ -9710,6 +9649,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1395495492}
     m_Modifications:
+    - target: {fileID: -1132388999546514124, guid: 9e2c4973c92726e4eba53a756c3bd72d, type: 3}
+      propertyPath: puedeDisparar
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3614436952418269916, guid: 9e2c4973c92726e4eba53a756c3bd72d, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -10526,17 +10469,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6401898082014479435 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9142334823127609856, guid: ffa37d72382f7464b8dad5d4133867a0, type: 3}
-  m_PrefabInstance: {fileID: 335266040907299972}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &6482214102655079276
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10783,7 +10715,7 @@ PrefabInstance:
     - target: {fileID: 5558988137497467639, guid: 56c6608df8ad4ea43afc4b1c575554b7, type: 3}
       propertyPath: contadorGlobal
       value: 
-      objectReference: {fileID: 77174950}
+      objectReference: {fileID: 0}
     - target: {fileID: 5871638135521593007, guid: 56c6608df8ad4ea43afc4b1c575554b7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -10907,5 +10839,5 @@ SceneRoots:
   - {fileID: 611643939}
   - {fileID: 6482214102655079276}
   - {fileID: 1822816076}
-  - {fileID: 370356282}
   - {fileID: 2142777474}
+  - {fileID: 359516702}

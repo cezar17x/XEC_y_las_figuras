@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EstrellasCollect : MonoBehaviour
+public class EstrellasCollect : GameManager
 {
     private const string StarKey = "Stars";
     private void Start()

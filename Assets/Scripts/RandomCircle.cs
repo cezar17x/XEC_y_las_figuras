@@ -6,7 +6,7 @@ using UnityEngine.Tilemaps;
 public class RandomCircle : MonoBehaviour
 {
     public float velocidad = 2f;
-    private List<Vector3> puntosvacios = new List<Vector3>();
+    private List<Vector3> puntosvacios = new();
     public Vector3 objetivoactual;
     public Tilemap tilemap;
 
@@ -49,7 +49,7 @@ public class RandomCircle : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<VidaPlayer>().Matar();
+           //Destruir Player
         }
         else if (collision.gameObject.CompareTag("Pared"))
         {
