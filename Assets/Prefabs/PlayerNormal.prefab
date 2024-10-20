@@ -2661,11 +2661,7 @@ GameObject:
   - component: {fileID: 8559775174357603921}
   - component: {fileID: 3438856430402199370}
   - component: {fileID: 4192378055267741931}
-  - component: {fileID: 7570832682406566097}
-  - component: {fileID: 4046814330069574903}
-  - component: {fileID: 6246565840159907038}
-  - component: {fileID: 4750161061778638023}
-  - component: {fileID: 3614436952418269916}
+  - component: {fileID: 3296987486543072924}
   m_Layer: 0
   m_Name: PlayerNormal
   m_TagString: Player
@@ -2761,7 +2757,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &7570832682406566097
+--- !u!114 &3296987486543072924
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2770,64 +2766,56 @@ MonoBehaviour:
   m_GameObject: {fileID: 9072038964420730543}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21f234abc7ef9394dbc96896075cc050, type: 3}
+  m_Script: {fileID: 11500000, guid: cc6c448c5265c8e4cbed49a4eca3e4fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puedeMoverse: 1
-  velocidadMovimiento: 40
-  layerMask:
+  playerName: Normal
+  proyectilPrefab: {fileID: 0}
+  particleEffect: {fileID: 0}
+  objetoAInstanciar: {fileID: 0}
+  hitEffectPrefab: {fileID: 0}
+  puntoDisparo: {fileID: 0}
+  cuerpo: {fileID: 0}
+  brazo: {fileID: 0}
+  velocidadProyectil: 10
+  municionActual: 6
+  municionMaxima: 6
+  contador: 0
+  layerObjetivo:
     serializedVersion: 2
     m_Bits: 64
-  anim: {fileID: 4808402090922120830}
-  hitEffectPrefab: {fileID: 3405634634857794177, guid: faac23033ebf798499795f3ef59a5248, type: 3}
+  puedeDisparar: 1
+  contadorBalas: {fileID: 0}
+  onDisparo:
+    m_PersistentCalls:
+      m_Calls: []
+  onMuerte:
+    m_PersistentCalls:
+      m_Calls: []
+  puedeBombardear: 0
+  imagenLlenadoRadial: {fileID: 0}
+  tiempoPulsacionRequerido: 5
+  puedeMoverse: 1
+  velocidadMovimiento: 0
+  pared:
+    serializedVersion: 2
+    m_Bits: 64
+  anim: {fileID: 0}
+  SPCuerpo: {fileID: 0}
+  normalSprite: {fileID: 0}
+  normalScale: {x: 0, y: 0, z: 0}
   onWallHit:
     m_PersistentCalls:
       m_Calls: []
   onChocoConTrampa:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6334087686258042390}
-        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
-        m_MethodName: set_sprite
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 85f9ebc8da2340747bdb0e0b9333b012, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onChocoEsquina:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6334087686258042390}
-        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
-        m_MethodName: set_sprite
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 21300000, guid: 7976a72fbe69f724b955c678abd9fd2d, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onAreaCircle:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6334087686258042390}
-        m_TargetAssemblyTypeName: UnityEngine.SpriteRenderer, UnityEngine
-        m_MethodName: set_sprite
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: -2413806693520163455, guid: 10e0b49090c80814696518acdd908cee, type: 3}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Sprite, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   onSalgoEsquina:
     m_PersistentCalls:
       m_Calls: []
@@ -2858,188 +2846,9 @@ MonoBehaviour:
   onExit2:
     m_PersistentCalls:
       m_Calls: []
-  cuerpo: {fileID: 3022702114646327229}
-  brazo: {fileID: 8310478998839011938}
-  SPCuerpo: {fileID: 6334087686258042390}
-  normalSprite: {fileID: 7482667652216324306, guid: 1a6b91584a745c74794fc5f990b2c238, type: 3}
-  normalScale: {x: 1, y: 1, z: 1}
---- !u!114 &4046814330069574903
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9072038964420730543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea10754811b80654cb1361c4af5a2fbf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enableSlide: 1
-  onRightSlide:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7570832682406566097}
-        m_TargetAssemblyTypeName: MovimientoConSlide, Assembly-CSharp
-        m_MethodName: MoverDerecha
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 7570832682406566097}
-        m_TargetAssemblyTypeName: MovimientoConSlide, Assembly-CSharp
-        m_MethodName: RotarIzquierda
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onLeftSlide:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7570832682406566097}
-        m_TargetAssemblyTypeName: MovimientoConSlide, Assembly-CSharp
-        m_MethodName: MoverIzquierda
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 7570832682406566097}
-        m_TargetAssemblyTypeName: MovimientoConSlide, Assembly-CSharp
-        m_MethodName: RotarDerecha
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onUpSlide:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7570832682406566097}
-        m_TargetAssemblyTypeName: MovimientoConSlide, Assembly-CSharp
-        m_MethodName: MoverArriba
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 7570832682406566097}
-        m_TargetAssemblyTypeName: MovimientoConSlide, Assembly-CSharp
-        m_MethodName: RotarAbajo
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onDownSlide:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7570832682406566097}
-        m_TargetAssemblyTypeName: MovimientoConSlide, Assembly-CSharp
-        m_MethodName: MoverAbajo
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 7570832682406566097}
-        m_TargetAssemblyTypeName: MovimientoConSlide, Assembly-CSharp
-        m_MethodName: RotarArriba
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &6246565840159907038
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9072038964420730543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b8e7457d38cee34d8f7dd962990825c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  proyectilPrefab: {fileID: 9002785066220272267, guid: 57952e7f4785800488c422ff4d7899be, type: 3}
-  puntoDisparo: {fileID: 2385773329837291106}
-  velocidadProyectil: 15
-  municionActual: 6
-  municionMaxima: 6
-  contador: 0
-  layerObjetivo:
-    serializedVersion: 2
-    m_Bits: 64
-  distanciaDisparo: 50
-  puedeDisparar: 1
-  contadorBalas: {fileID: 0}
---- !u!114 &4750161061778638023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9072038964420730543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e2b65aa9bb2f1a941a18bf7e9639336f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  particleEffect: {fileID: 1645096362711183766, guid: bbe411f4127e5464fae76d1351083ac3, type: 3}
-  onMuerte:
+  onStar:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &3614436952418269916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9072038964420730543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e8a8b31fc468c240a86a8cb3c0cf7c1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objetoAInstanciar: {fileID: 6795499483964574395, guid: 4eb60d802118cc645841fe87c346972f, type: 3}
-  imagenLlenadoRadial: {fileID: 2039267605373769852}
-  tiempoPulsacionRequerido: 2
-  puedeBombardear: 1
 --- !u!1 &9151867151798966989
 GameObject:
   m_ObjectHideFlags: 0
