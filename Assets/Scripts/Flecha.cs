@@ -1,22 +1,18 @@
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
-public class Flecha : MonoBehaviour
+public class Flecha : Enemy
 {
-    public Tilemap tilemap;  // Tilemap que recorre el enemigo
-    public float speed = 2f; // Velocidad de movimiento
-    public Transform root;
-    private bool movingRight = true;
-    public Vector3Int posicionInicial;
-    public LayerMask layerPared;
-
-    void Start()
+    public Flecha(string name): base(name){}
+    public override void Start()
     {
-        transform.position = tilemap.GetCellCenterWorld(posicionInicial);
+        base.Start();
     }
 
-    void Update()
+    public override void Update()
+    {
+        base.Update();
+    }
+    public override void CalcularNuevaPosicion()
     {
         // Calcula la nueva posición basada en la dirección
         Vector3 targetPosition = transform.position;
@@ -32,7 +28,7 @@ public class Flecha : MonoBehaviour
 
         // Mueve el enemigo hacia la nueva posición
         transform.position = targetPosition;
-        if (transform.position.x >= tilemap.size.x - 1) // Cambia según el tamaño de tu tilemap
+        if (transform.position.x >= tilemapFlecha.size.x - 1) // Cambia según el tamaño de tu tilemap
         {
             movingRight = false; // Cambia la dirección a izquierda
             Quaternion rotacion = Quaternion.Euler(0f, 0f, 180f);
@@ -44,7 +40,6 @@ public class Flecha : MonoBehaviour
             Quaternion rotacion = Quaternion.Euler(0f, 0f, 0f);
             root.transform.localRotation = rotacion;
         }
-       
     }
     void OnCollisionEnter2D(Collision2D collision)
     {
@@ -64,6 +59,20 @@ public class Flecha : MonoBehaviour
         {
             Destroy(collision.gameObject, 2);
             //Instanciar particula de muerte;
+        }
+    }
+    public override void TomaDaño(int daño)
+    {
+        vidaActual -= daño;
+        if (vidaActual > 0)
+        {
+            Instantiate(particleEffect, transform.position, Quaternion.identity);
+        }
+        else
+        {
+            onMuerte.Invoke();
+            Instantiate(particleEffect, transform.position, Quaternion.identity);
+            Destroy(gameObject, 1);
         }
     }
 }

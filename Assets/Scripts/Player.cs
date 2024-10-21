@@ -20,25 +20,21 @@ public class Player : MonoBehaviour
     public bool enableSlide;
     public UnityEvent onRightSlide, onLeftSlide, onUpSlide, onDownSlide;
 
-    [Header("Variable de Bombardero")]
-    public GameObject objetoAInstanciar;
+    [Header("Variables de Bombardero")]
+    public GameObject bombaPrefab;
     public Image imagenLlenadoRadial;
     public float tiempoPulsacionRequerido = 5f;
     public bool puedeBombardear = false;
-
+    void Update()
+    {
+        Disparar();
+        Deslizar();
+        Bombardear();
+    }
     // Métodos virtuales para que las clases derivadas puedan sobreescribir
-    public virtual void Disparar()
-    {
-        //Debug.Log("Disparar desde Player");
-    }
+    public virtual void Disparar() {  }
 
-    public virtual void Deslizar()
-    {
-        //Debug.Log("Deslizar desde Player");
-    }
+    public virtual void Deslizar() { }
 
-    public virtual void Bombardear()
-    {
-        //Debug.Log("Bombardear desde Player");
-    }
+    public virtual void Bombardear() { }
 }

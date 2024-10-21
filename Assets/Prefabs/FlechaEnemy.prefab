@@ -181,8 +181,7 @@ GameObject:
   - component: {fileID: 6538019231521015714}
   - component: {fileID: 2482651001503977950}
   - component: {fileID: 2484841058832496829}
-  - component: {fileID: 1791365465890758850}
-  - component: {fileID: 917308234690326016}
+  - component: {fileID: 4790649859095734221}
   m_Layer: 0
   m_Name: FlechaEnemy
   m_TagString: Enemy
@@ -278,7 +277,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.4998256, y: 0.6324811}
   m_EdgeRadius: 0
---- !u!114 &1791365465890758850
+--- !u!114 &4790649859095734221
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -287,46 +286,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 2395033837266275028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52ad83e025575064bbd8b3943eeed9a1, type: 3}
+  m_Script: {fileID: 11500000, guid: d466e37678ed4a246a370bb78a02941e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilemap: {fileID: 0}
-  speed: 2
-  root: {fileID: 8389363380827574504}
-  posicionInicial: {x: 2, y: 5, z: 0}
-  layerPared:
-    serializedVersion: 2
-    m_Bits: 64
---- !u!114 &917308234690326016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2395033837266275028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdc29801d95e9da4999baeec72be2404, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  nameEnemy: Flecha
   maxVida: 3
   vidaActual: 0
   particleEffect: {fileID: 1645096362711183766, guid: bbe411f4127e5464fae76d1351083ac3, type: 3}
   onMuerte:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 917308234690326016}
-        m_TargetAssemblyTypeName: VidaEnemy, Assembly-CSharp
-        m_MethodName: Destroy
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 2395033837266275028}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+  tilemapFlecha: {fileID: 0}
+  posicionInicial: {x: 0, y: 0, z: 0}
+  speed: 0
+  layerPared:
+    serializedVersion: 2
+    m_Bits: 0
+  movingRight: 0
+  root: {fileID: 0}
+  objetivoactual: {x: 0, y: 0, z: 0}
+  velocidad: 0
+  tilemapRandom: {fileID: 0}
+  rb: {fileID: 0}
+  objeto: {fileID: 0}
+  alturaInicial: 0
+  tiempoAdvertencia: 0
+  advertenciaCanvas: {fileID: 0}
 --- !u!1 &5714938920005531568
 GameObject:
   m_ObjectHideFlags: 0

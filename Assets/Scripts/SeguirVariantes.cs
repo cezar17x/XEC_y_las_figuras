@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class SeguirVariantes : GameManager
 {
-    public override void _SeguirVariantes()
+    public override void SeguirVariantes1()
     {
         foreach (GameObject player in playerVariants)
         {

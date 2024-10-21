@@ -44,20 +44,6 @@ public class MovimientoConSlide : MonoBehaviour
             velocidad = direccion;
 
             pegadoAPared = Vector3.Distance(transform.position, siguienteDireccion) < 0.1f;
-
-            /* esto es para decidir cual animaci�n de movimiento reproducir
-            string animMover = "";
-            if (direccion.y == 1)
-                animMover = "MoveUp";
-            if (direccion.y == -1)
-                animMover = "MoveDown";
-            if (direccion.x == 1)
-                animMover = "MoveRight";
-            if (direccion.x == -1)
-                animMover = "MoveLeft";
-
-            anim.Play(animMover);*/
-
         }
     }
 

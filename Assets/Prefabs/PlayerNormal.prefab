@@ -2798,13 +2798,10 @@ MonoBehaviour:
   onDownSlide:
     m_PersistentCalls:
       m_Calls: []
-  objetoAInstanciar: {fileID: 0}
-  imagenLlenadoRadial: {fileID: 0}
-  tiempoPulsacionRequerido: 5
+  bombaPrefab: {fileID: 0}
+  imagenLlenadoRadial: {fileID: 2039267605373769852}
+  tiempoPulsacionRequerido: 2
   puedeBombardear: 1
-  bombardero: {fileID: 0}
-  disparo: {fileID: 0}
-  touch: {fileID: 0}
 --- !u!114 &2791118016175045782
 MonoBehaviour:
   m_ObjectHideFlags: 0

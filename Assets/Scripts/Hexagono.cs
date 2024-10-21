@@ -1,17 +1,18 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class Hexagono : MonoBehaviour
+public class Hexagono : Enemy
 {
-    public GameObject objeto; // El objeto que caerá
-    public float alturaInicial = 10f; // Altura desde la que el objeto caerá
-    public float tiempoAdvertencia = 2f; // Tiempo que dura la advertencia en pantalla
-    public CanvasGroup advertenciaCanvas;
-
-    private Rigidbody2D rb;
-
-    void Start()
+    public string _name;
+    public Hexagono(string name): base(name)
+    {
+        _name = name;
+    }
+    public override void Start()
+    {
+        base.Start();
+    }
+    public override void Caer()
     {
         // Inicializamos la posición del objeto en la altura especificada
         objeto.transform.position = new Vector3(objeto.transform.position.x, alturaInicial, objeto.transform.position.z);
@@ -22,9 +23,7 @@ public class Hexagono : MonoBehaviour
 
         // Llamamos a la advertencia y el objeto caerá después
         StartCoroutine(MostrarAdvertenciaYDejarCaer());
-        
     }
-
     IEnumerator MostrarAdvertenciaYDejarCaer()
     {
         advertenciaCanvas.alpha = 1.0f;
@@ -32,11 +31,18 @@ public class Hexagono : MonoBehaviour
         advertenciaCanvas.alpha = 0f;
         rb.isKinematic = false;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    public override void TomaDaño(int daño)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        vidaActual -= daño;
+        if (vidaActual > 0)
         {
-            //Destruir Player;
+            Instantiate(particleEffect, transform.position, Quaternion.identity);
+        }
+        else
+        {
+            onMuerte.Invoke();
+            Instantiate(particleEffect, transform.position, Quaternion.identity);
+            Destroy(gameObject, 1);
         }
     }
 }

@@ -1,19 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class CommerceSystem : MonoBehaviour
+public class CommerceSystem : GameManager
 {
-    private const string GemsKey = "Gems";
-
-    // Cargar gemas al iniciar el juego
-    private void Start()
-    {
-        LoadGems();
-    }
-
     // Método para recolectar gemas
-    public void CollectGems(int amount)
+    public override void CollectGems(int amount)
     {
         int currentGems = PlayerPrefs.GetInt(GemsKey, 0);
         currentGems += amount;
@@ -22,7 +12,7 @@ public class CommerceSystem : MonoBehaviour
     }
 
     // Método para gastar gemas al desbloquear algo
-    public bool SpendGems(int amount)
+    public override bool SpendGems(int amount)
     {
         int currentGems = PlayerPrefs.GetInt(GemsKey, 0);
         if (currentGems >= amount)
@@ -36,21 +26,15 @@ public class CommerceSystem : MonoBehaviour
     }
 
     // Cargar gemas desde PlayerPrefs
-    private void LoadGems()
+    public override  void LoadGems()
     {
         int currentGems = PlayerPrefs.GetInt(GemsKey, 0);
         Debug.Log("Gemas cargadas: " + currentGems);
     }
 
     // Método para obtener la cantidad actual de gemas
-    public int GetGems()
+    public override int GetGems()
     {
-        return PlayerPrefs.GetInt(GemsKey, 0);
-    }
-    public void ResetData()
-    {
-        PlayerPrefs.DeleteAll(); // Elimina todos los datos guardados en PlayerPrefs
-        PlayerPrefs.Save(); // Guarda los cambios
-        Debug.Log("Datos reseteados.");
+        return base.GetGems(); 
     }
 }

@@ -541,8 +541,7 @@ GameObject:
   - component: {fileID: 902378714316414455}
   - component: {fileID: 4013859652564095604}
   - component: {fileID: 5969548051612494938}
-  - component: {fileID: 4188124843763194078}
-  - component: {fileID: 141511966717014586}
+  - component: {fileID: 7591518257249895690}
   m_Layer: 0
   m_Name: Hexagono
   m_TagString: Enemy
@@ -629,7 +628,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &4188124843763194078
+--- !u!114 &7591518257249895690
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -638,43 +637,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 1666330630675246385}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f1c8d2a19a1ff694dae57da40409b4f2, type: 3}
+  m_Script: {fileID: 11500000, guid: d466e37678ed4a246a370bb78a02941e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nameEnemy: Hexagon
+  maxVida: 3
+  vidaActual: 0
+  particleEffect: {fileID: 0}
+  onMuerte:
+    m_PersistentCalls:
+      m_Calls: []
+  rb: {fileID: 5969548051612494938}
+  tilemapFlecha: {fileID: 0}
+  posicionInicial: {x: 0, y: 0, z: 0}
+  speed: 2
+  layerPared:
+    serializedVersion: 2
+    m_Bits: 64
+  movingRight: 1
+  root: {fileID: 0}
+  objetivoactual: {x: 0, y: 0, z: 0}
+  velocidad: 2
+  tilemapRandom: {fileID: 0}
   objeto: {fileID: 1666330630675246385}
   alturaInicial: 10
   tiempoAdvertencia: 2
   advertenciaCanvas: {fileID: 5585629779540583887}
---- !u!114 &141511966717014586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1666330630675246385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdc29801d95e9da4999baeec72be2404, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxVida: 2
-  vidaActual: 0
-  particleEffect: {fileID: 1645096362711183766, guid: bbe411f4127e5464fae76d1351083ac3, type: 3}
-  onMuerte:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1666330630675246385}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &1683539831472365426
 GameObject:
   m_ObjectHideFlags: 0

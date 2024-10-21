@@ -8,6 +8,7 @@ public class DisparoTouch : Player
     private float tiempoEntreTaps = 0.3f, ultimoTap = 0f;
     public override void Disparar()
     {
+        base.Disparar();
         if (!puedeDisparar) return;
         if (puedeDisparar)
         {

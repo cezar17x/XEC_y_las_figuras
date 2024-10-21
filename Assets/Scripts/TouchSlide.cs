@@ -12,6 +12,7 @@ public class TouchSlide : Player
     private float minimoPorcentajeDesplazamiento = 0.1f; // 10 porciento de ancho o alto
     public  override void Deslizar()
     {
+        base.Deslizar();
         if (!enableSlide) return;
 
         screenResolution.x = Display.main.systemWidth;

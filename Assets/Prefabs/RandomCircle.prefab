@@ -9,10 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3790521383400749350}
-  - component: {fileID: 2448975981822000041}
   - component: {fileID: 5806176347259746052}
   - component: {fileID: 8731888978765934814}
-  - component: {fileID: 3366049805928128485}
+  - component: {fileID: 6472132785406355620}
   m_Layer: 0
   m_Name: RandomCircle
   m_TagString: Untagged
@@ -36,21 +35,6 @@ Transform:
   - {fileID: 3068170447687523897}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2448975981822000041
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 110210348346988862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 86c2831c093439c4cb188bfe0832c31b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  velocidad: 2
-  objetivoactual: {x: 0, y: 0, z: 0}
-  tilemap: {fileID: 0}
 --- !u!58 &5806176347259746052
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -113,7 +97,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &3366049805928128485
+--- !u!114 &6472132785406355620
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,27 +106,32 @@ MonoBehaviour:
   m_GameObject: {fileID: 110210348346988862}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdc29801d95e9da4999baeec72be2404, type: 3}
+  m_Script: {fileID: 11500000, guid: d466e37678ed4a246a370bb78a02941e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxVida: 4
+  nameEnemy: Perdido
+  maxVida: 3
   vidaActual: 0
   particleEffect: {fileID: 1645096362711183766, guid: bbe411f4127e5464fae76d1351083ac3, type: 3}
   onMuerte:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 110210348346988862}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+  rb: {fileID: 8731888978765934814}
+  tilemapFlecha: {fileID: 0}
+  posicionInicial: {x: 0, y: 0, z: 0}
+  speed: 2
+  layerPared:
+    serializedVersion: 2
+    m_Bits: 64
+  movingRight: 1
+  root: {fileID: 3068170447687523897}
+  objetivoactual: {x: 0, y: 0, z: 0}
+  velocidad: 2
+  tilemapRandom: {fileID: 0}
+  objeto: {fileID: 0}
+  alturaInicial: 10
+  tiempoAdvertencia: 2
+  advertenciaCanvas: {fileID: 0}
 --- !u!1 &293117853942642672
 GameObject:
   m_ObjectHideFlags: 0

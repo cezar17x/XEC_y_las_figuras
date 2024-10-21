@@ -8,6 +8,7 @@ public class Bombardero : Player
     bool dedoPulsado = false;
     public override void Bombardear()
     {
+        base.Bombardear();
         if (!puedeBombardear) return;
         dedoPulsado = (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Stationary) ? true : false;
         if (dedoPulsado)
@@ -22,13 +23,11 @@ public class Bombardero : Player
         {
             InstanciarObjeto();
         }
-
-        // Actualizar la imagen de llenado radial
         imagenLlenadoRadial.fillAmount = tiempoPulsacionActual / tiempoPulsacionRequerido;
     }
     void InstanciarObjeto()
     {
-        Instantiate(objetoAInstanciar, transform.position, Quaternion.identity);
+        Instantiate(bombaPrefab, transform.position, Quaternion.identity);
         tiempoPulsacionActual = 0f;
     }
 }
