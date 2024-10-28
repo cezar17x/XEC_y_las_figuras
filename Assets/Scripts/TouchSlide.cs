@@ -1,41 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine.Events;
 using UnityEngine;
-using JetBrains.Annotations;
 
-public class TouchSlide : Player
+public class TouchSlide : MonoBehaviour
 {
-    Touch touch;
-    Vector2 touchStartPos, touchLastPos;
-    Vector2 screenResolution;
-    private float minimoPorcentajeDesplazamiento = 0.1f; // 10 porciento de ancho o alto
-    public  override void Deslizar()
-    {
-        base.Deslizar();
-        if (!enableSlide) return;
-
-        screenResolution.x = Display.main.systemWidth;
-        screenResolution.y = Display.main.systemHeight;
-
-        if (Input.touchCount > 0)
-        {
-            touch = Input.GetTouch(0);
-
-            if (touch.phase == TouchPhase.Began)
-            {
-                touchStartPos = touch.position;
-            }
-
-            if (touch.phase == TouchPhase.Ended)
-            {
-                touchLastPos = touch.position;
-                ChequearTipoDeTouch(touchStartPos, touchLastPos);
-            }
-        }
-        
-    }
-    void ChequearTipoDeTouch(Vector3 startPos, Vector3 endPos)
+    public static Touch touchInput;
+    public static Vector2 touchStartPos, touchLastPos;
+    public static Vector2 screenResolution;
+    public static float minimoPorcentajeDesplazamiento = 0.1f; // 10 porciento de ancho o alto
+    public UnityEvent onRightSlide, onLeftSlide, onUpSlide, onDownSlide;
+    public virtual void Movimiento() { }
+    public void ChequearTipoDeTouch(Vector3 startPos, Vector3 endPos)
     {
         float deltaX = endPos.x - startPos.x;
         float deltaY = endPos.y - startPos.y;
@@ -82,3 +56,29 @@ public class TouchSlide : Player
         }
     }
 }
+/*public class Deslizar : TouchSlide
+{
+    public override void Movimiento()
+    {
+        screenResolution.x = Display.main.systemWidth;
+        screenResolution.y = Display.main.systemHeight;
+
+        if (Input.touchCount > 0)
+        {
+            touchInput = Input.GetTouch(0);
+
+            if (touchInput.phase == TouchPhase.Began)
+            {
+                touchStartPos = touchInput.position;
+            }
+
+            if (touchInput.phase == TouchPhase.Ended)
+            {
+                touchLastPos = touchInput.position;
+                ChequearTipoDeTouch(touchStartPos, touchLastPos);
+            }
+        }
+
+    }
+
+}*/

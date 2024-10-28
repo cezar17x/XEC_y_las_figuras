@@ -2663,6 +2663,7 @@ GameObject:
   - component: {fileID: 4192378055267741931}
   - component: {fileID: -1132388999546514124}
   - component: {fileID: 2791118016175045782}
+  - component: {fileID: 4789485227852890956}
   m_Layer: 0
   m_Name: PlayerNormal
   m_TagString: Player
@@ -2780,28 +2781,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   distanciaDisparo: 100
-  puedeDisparar: 0
   contadorBalas: {fileID: 0}
   onDisparo:
-    m_PersistentCalls:
-      m_Calls: []
-  enableSlide: 1
-  onRightSlide:
-    m_PersistentCalls:
-      m_Calls: []
-  onLeftSlide:
-    m_PersistentCalls:
-      m_Calls: []
-  onUpSlide:
-    m_PersistentCalls:
-      m_Calls: []
-  onDownSlide:
     m_PersistentCalls:
       m_Calls: []
   bombaPrefab: {fileID: 0}
   imagenLlenadoRadial: {fileID: 2039267605373769852}
   tiempoPulsacionRequerido: 2
-  puedeBombardear: 1
+  touch: {fileID: 4789485227852890956}
 --- !u!114 &2791118016175045782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2871,6 +2858,30 @@ MonoBehaviour:
   SPCuerpo: {fileID: 0}
   normalSprite: {fileID: 0}
   normalScale: {x: 0, y: 0, z: 0}
+--- !u!114 &4789485227852890956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9072038964420730543}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fbd5e59e2da884449aef0f1fc0cac88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onRightSlide:
+    m_PersistentCalls:
+      m_Calls: []
+  onLeftSlide:
+    m_PersistentCalls:
+      m_Calls: []
+  onUpSlide:
+    m_PersistentCalls:
+      m_Calls: []
+  onDownSlide:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &9151867151798966989
 GameObject:
   m_ObjectHideFlags: 0

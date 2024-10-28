@@ -12,29 +12,30 @@ public class Player : MonoBehaviour
     public int municionActual = 6, municionMaxima = 6, contador = 0;
     public LayerMask layerObjetivo;
     public float distanciaDisparo = 100f;
-    public bool puedeDisparar = false;
     public TextMeshProUGUI contadorBalas;
     public UnityEvent onDisparo;
-
-    [Header("Variables de Deslizar")]
-    public bool enableSlide;
-    public UnityEvent onRightSlide, onLeftSlide, onUpSlide, onDownSlide;
-
     [Header("Variables de Bombardero")]
     public GameObject bombaPrefab;
     public Image imagenLlenadoRadial;
     public float tiempoPulsacionRequerido = 5f;
-    public bool puedeBombardear = false;
+    [Header("Habilidades")]
+    public TouchSlide touch;
     void Update()
     {
         Disparar();
-        Deslizar();
+        touch.Movimiento();
         Bombardear();
     }
     // Métodos virtuales para que las clases derivadas puedan sobreescribir
     public virtual void Disparar() {  }
-
-    public virtual void Deslizar() { }
-
     public virtual void Bombardear() { }
+    public virtual void RecogerMunicion(int cantidad) { }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("bala"))
+        {
+            RecogerMunicion(1);
+            Destroy(collision.gameObject);
+        }
+    }
 }

@@ -8,42 +8,38 @@ public class DisparoTouch : Player
     private float tiempoEntreTaps = 0.3f, ultimoTap = 0f;
     public override void Disparar()
     {
-        base.Disparar();
-        if (!puedeDisparar) return;
-        if (puedeDisparar)
+        base.Disparar();    
+        if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
         {
-            if (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began)
+            // Si el tiempo entre el último toque y el toque actual es menor al tiempo permitido para doble tap
+            if (Time.time - ultimoTap < tiempoEntreTaps && base.municionActual > 0)
             {
-                // Si el tiempo entre el último toque y el toque actual es menor al tiempo permitido para doble tap
-                if (Time.time - ultimoTap < tiempoEntreTaps && municionActual > 0)
-                {
-                    DispararRaycastConProyectil();
-                }
-                ultimoTap = Time.time; // Actualizar el tiempo del último toque
+                DispararRaycastConProyectil();
             }
+            ultimoTap = Time.time; // Actualizar el tiempo del último toque
         }
     }
     void DispararRaycastConProyectil()
     {
         
-        if (municionActual > 0)
+        if (base.municionActual > 0)
         {
-            RaycastHit2D hit = Physics2D.Raycast(puntoDisparo.position, puntoDisparo.right, distanciaDisparo, layerObjetivo);
+            RaycastHit2D hit = Physics2D.Raycast(base.puntoDisparo.position, base.puntoDisparo.right, base.distanciaDisparo, base.layerObjetivo);
             if (hit.collider != null)
             {
-                GameObject proyectil = Instantiate(proyectilPrefab, puntoDisparo.position, Quaternion.identity);
-                Vector2 direccionObjetivo = (hit.point - (Vector2)puntoDisparo.position).normalized;
+                GameObject proyectil = Instantiate(base.proyectilPrefab, base.puntoDisparo.position, Quaternion.identity);
+                Vector2 direccionObjetivo = (hit.point - (Vector2)base.puntoDisparo.position).normalized;
                 Rigidbody2D rb = proyectil.GetComponent<Rigidbody2D>();
-                rb.velocity = direccionObjetivo * velocidadProyectil;
+                rb.velocity = direccionObjetivo * base.velocidadProyectil;
                 StartCoroutine(DestruirTime(proyectil));
-                onDisparo.Invoke(); 
+                base.onDisparo.Invoke(); 
             }
             else
             {
                 Debug.Log("No se impactó con ningún objeto en el LayerMask.");
             }
-            municionActual--;
-            ActualizarUI(municionActual);
+            base.municionActual--;
+            ActualizarUI(base.municionActual);
         }
     }
     IEnumerator DestruirTime(GameObject bala)
@@ -52,20 +48,11 @@ public class DisparoTouch : Player
         Destroy(bala.gameObject);
         StopCoroutine(DestruirTime(bala));
     }
-    public void RecogerMunicion(int cantidad)
+    public override void RecogerMunicion(int cantidad)
     {
-        municionActual = Mathf.Clamp(municionActual + cantidad, 0, municionMaxima);
-        ActualizarUI(municionActual);
+        base.municionActual = Mathf.Clamp(base.municionActual + cantidad, 0, municionMaxima);
+        ActualizarUI(base.municionActual);
     }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("bala"))
-        {
-            RecogerMunicion(1);
-            Destroy(collision.gameObject);
-        }
-    }
-
      public void ActualizarUI(int cantidad)
      {
         contadorBalas.text = cantidad.ToString();

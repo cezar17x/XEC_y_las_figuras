@@ -9,7 +9,6 @@ public class Bombardero : Player
     public override void Bombardear()
     {
         base.Bombardear();
-        if (!puedeBombardear) return;
         dedoPulsado = (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Stationary) ? true : false;
         if (dedoPulsado)
         {
