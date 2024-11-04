@@ -2788,7 +2788,7 @@ MonoBehaviour:
   bombaPrefab: {fileID: 0}
   imagenLlenadoRadial: {fileID: 2039267605373769852}
   tiempoPulsacionRequerido: 2
-  touch: {fileID: 4789485227852890956}
+  nivelesConBomba: 050000000600000007000000
 --- !u!114 &2791118016175045782
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2872,16 +2872,112 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onRightSlide:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2791118016175045782}
+        m_TargetAssemblyTypeName: MovimientoConSlide, Assembly-CSharp
+        m_MethodName: MoverDerecha
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2791118016175045782}
+        m_TargetAssemblyTypeName: MovimientoConSlide, Assembly-CSharp
+        m_MethodName: RotarIzquierda
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onLeftSlide:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2791118016175045782}
+        m_TargetAssemblyTypeName: MovimientoConSlide, Assembly-CSharp
+        m_MethodName: MoverIzquierda
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2791118016175045782}
+        m_TargetAssemblyTypeName: MovimientoConSlide, Assembly-CSharp
+        m_MethodName: RotarDerecha
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onUpSlide:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2791118016175045782}
+        m_TargetAssemblyTypeName: MovimientoConSlide, Assembly-CSharp
+        m_MethodName: MoverArriba
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2791118016175045782}
+        m_TargetAssemblyTypeName: MovimientoConSlide, Assembly-CSharp
+        m_MethodName: RotarAbajo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onDownSlide:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2791118016175045782}
+        m_TargetAssemblyTypeName: MovimientoConSlide, Assembly-CSharp
+        m_MethodName: MoverAbajo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2791118016175045782}
+        m_TargetAssemblyTypeName: MovimientoConSlide, Assembly-CSharp
+        m_MethodName: RotarArriba
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &9151867151798966989
 GameObject:
   m_ObjectHideFlags: 0

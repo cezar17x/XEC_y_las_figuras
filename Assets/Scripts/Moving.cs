@@ -2,8 +2,13 @@ using UnityEngine;
 
 public class Moving : TouchSlide
 {
+    private void Update()
+    {
+        this.Movimiento();
+    }
     public override void Movimiento()
     {
+        base.Movimiento();
         screenResolution.x = Display.main.systemWidth;
         screenResolution.y = Display.main.systemHeight;
 

@@ -2054,6 +2054,7 @@ GameObject:
   - component: {fileID: 665785036513724029}
   - component: {fileID: 5621857850785950550}
   - component: {fileID: 1722692850192216157}
+  - component: {fileID: 8847143050407079725}
   m_Layer: 0
   m_Name: Arcos
   m_TagString: Player
@@ -2162,7 +2163,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   proyectilPrefab: {fileID: 9002785066220272267, guid: 57952e7f4785800488c422ff4d7899be, type: 3}
-  puntoDisparo: {fileID: 0}
+  puntoDisparo: {fileID: 2680035670150594583}
   velocidadProyectil: 10
   municionActual: 6
   municionMaxima: 6
@@ -2171,28 +2172,14 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   distanciaDisparo: 100
-  puedeDisparar: 0
   contadorBalas: {fileID: 0}
   onDisparo:
     m_PersistentCalls:
       m_Calls: []
-  enableSlide: 1
-  onRightSlide:
-    m_PersistentCalls:
-      m_Calls: []
-  onLeftSlide:
-    m_PersistentCalls:
-      m_Calls: []
-  onUpSlide:
-    m_PersistentCalls:
-      m_Calls: []
-  onDownSlide:
-    m_PersistentCalls:
-      m_Calls: []
-  bombaPrefab: {fileID: 0}
-  imagenLlenadoRadial: {fileID: 0}
+  bombaPrefab: {fileID: 6795499483964574395, guid: 4eb60d802118cc645841fe87c346972f, type: 3}
+  imagenLlenadoRadial: {fileID: 4075089301726645176}
   tiempoPulsacionRequerido: 2
-  puedeBombardear: 1
+  nivelesConBomba: 050000000600000007000000
 --- !u!114 &1722692850192216157
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2205,11 +2192,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21f234abc7ef9394dbc96896075cc050, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  puedeMoverse: 0
+  puedeMoverse: 1
   velocidadMovimiento: 0
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   anim: {fileID: 0}
   hitEffectPrefab: {fileID: 0}
   onWallHit:
@@ -2262,6 +2249,30 @@ MonoBehaviour:
   SPCuerpo: {fileID: 0}
   normalSprite: {fileID: 0}
   normalScale: {x: 0, y: 0, z: 0}
+--- !u!114 &8847143050407079725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7270363082679626180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fbd5e59e2da884449aef0f1fc0cac88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onRightSlide:
+    m_PersistentCalls:
+      m_Calls: []
+  onLeftSlide:
+    m_PersistentCalls:
+      m_Calls: []
+  onUpSlide:
+    m_PersistentCalls:
+      m_Calls: []
+  onDownSlide:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &7522144156241093788
 GameObject:
   m_ObjectHideFlags: 0
