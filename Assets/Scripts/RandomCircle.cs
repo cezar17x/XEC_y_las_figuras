@@ -1,20 +1,21 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class RandomCircle : Enemy
 {
-    private List<Vector3> puntosvacios = new();
-    public string _name;
-    public RandomCircle(string name): base(name)
-    {
-        _name = name;
-    }
+    
+    private List<Vector3> _emptyPoints = new();
+    public Vector3 actualObjective;
+    public float circleSpeed = 2f;
+    public Tilemap tilemapRandom;
+    
       public override void Start()
       {
         base.Start();
+        EncontraPuntosVacios();
       }
-    public override void EncontraPuntosVacios()
+    public  void EncontraPuntosVacios()
     {
         BoundsInt bounds = tilemapRandom.cellBounds;
         for (int x = bounds.xMin; x <= bounds.xMax; x++)
@@ -23,47 +24,51 @@ public class RandomCircle : Enemy
             {
                 if (tilemapRandom.GetTile(new Vector3Int(x, y, 0)) != null)
                 {
-                    puntosvacios.Add(new Vector3(x + 0.5f, y + 0.5f, 0));
+                    _emptyPoints.Add(new Vector3(x + 0.5f, y + 0.5f, 0));
+                    
                 }
             }
         }
     }
-    public override void EncontrarObjetivoRandom()
+    private  void FindRandomObject()
     {
         // si no hay objetivo actual, elegir uno aleatorio
-        if (objetivoactual == Vector3.zero)
+        if (actualObjective == Vector3.zero)
         {
-            objetivoactual = puntosvacios[Random.Range(0, puntosvacios.Count)];
+            actualObjective = _emptyPoints[Random.Range(0, _emptyPoints.Count)];
         }
 
         // mover al npc hacia el objetivo actual
-        float distancia = Vector3.Distance(transform.position, objetivoactual);
+        float distancia = Vector3.Distance(transform.position, actualObjective);
         if (distancia > 0.1f)
         {
-            transform.position = Vector3.MoveTowards(transform.position, objetivoactual, velocidad * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, actualObjective, circleSpeed * Time.deltaTime);
         }
         else
         {
             // si el npc llega al objetivo, elegir un nuevo objetivo aleatorio
-            objetivoactual = Vector3.zero;
+            actualObjective = Vector3.zero;
         }
     }
     public override void Update()
     {
         base.Update();
+        FindRandomObject();
     }
-    public override void TomaDaño(int daño)
+    public override void TakeDamage(int damage)
     {
-        vidaActual -= daño;
-        if (vidaActual > 0)
+        base.TakeDamage(damage);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
         {
-            Instantiate(particleEffect, transform.position, Quaternion.identity);
+            Destroy(collision.gameObject);
         }
-        else
+        else if (collision.gameObject.CompareTag("Pared"))
         {
-            onMuerte.Invoke();
-            Instantiate(particleEffect, transform.position, Quaternion.identity);
-            Destroy(gameObject, 1);
+            actualObjective = Vector3.zero;
         }
+
     }
 }

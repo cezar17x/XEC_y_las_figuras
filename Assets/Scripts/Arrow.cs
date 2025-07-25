@@ -1,20 +1,28 @@
 using UnityEngine;
-
-public class Flecha : Enemy
+using UnityEngine.Tilemaps;
+public class Arrow : Enemy
 {
-    public Flecha(string name): base(name){}
+    public Tilemap ArrowTilemap;
+    public Vector3Int initialPosition;
+    public float speed = 2f;
+    public LayerMask layerPared;
+    [HideInInspector]public bool movingRight = true;
+    public Transform root;
     public override void Start()
     {
         base.Start();
+        transform.position = ArrowTilemap.GetCellCenterWorld(initialPosition);
     }
 
     public override void Update()
     {
         base.Update();
+        CalculeNewPosition();
+        
     }
-    public override void CalcularNuevaPosicion()
+    public  void CalculeNewPosition()
     {
-        // Calcula la nueva posición basada en la dirección
+        // Calcula la nueva posiciï¿½n basada en la direcciï¿½n
         Vector3 targetPosition = transform.position;
 
         if (movingRight)
@@ -26,17 +34,17 @@ public class Flecha : Enemy
             targetPosition.x -= speed * Time.deltaTime;
         }
 
-        // Mueve el enemigo hacia la nueva posición
+        // Mueve el enemigo hacia la nueva posiciï¿½n
         transform.position = targetPosition;
-        if (transform.position.x >= tilemapFlecha.size.x - 1) // Cambia según el tamaño de tu tilemap
+        if (transform.position.x >= ArrowTilemap.size.x - 1) // Cambia segï¿½n el tamaï¿½o de tu tilemap
         {
-            movingRight = false; // Cambia la dirección a izquierda
+            movingRight = false; // Cambia la direcciï¿½n a izquierda
             Quaternion rotacion = Quaternion.Euler(0f, 0f, 180f);
             root.transform.localRotation = rotacion;
         }
         else if (transform.position.x <= 0)
         {
-            movingRight = true; // Cambia la dirección a derecha
+            movingRight = true; // Cambia la direcciï¿½n a derecha
             Quaternion rotacion = Quaternion.Euler(0f, 0f, 0f);
             root.transform.localRotation = rotacion;
         }
@@ -58,21 +66,11 @@ public class Flecha : Enemy
         else if (collision.gameObject.CompareTag("Player"))
         {
             Destroy(collision.gameObject, 2);
-            //Instanciar particula de muerte;
         }
     }
-    public override void TomaDaño(int daño)
+
+    public override void TakeDamage(int damage)
     {
-        vidaActual -= daño;
-        if (vidaActual > 0)
-        {
-            Instantiate(particleEffect, transform.position, Quaternion.identity);
-        }
-        else
-        {
-            onMuerte.Invoke();
-            Instantiate(particleEffect, transform.position, Quaternion.identity);
-            Destroy(gameObject, 1);
-        }
+        base.TakeDamage(damage);
     }
 }

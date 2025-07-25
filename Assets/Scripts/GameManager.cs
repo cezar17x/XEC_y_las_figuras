@@ -32,7 +32,7 @@ public class GameManager : MonoBehaviour
         pausePanel.SetActive(false);
         foreach (Enemy enemy in enemigos)
         {
-            enemy.vidaActual = enemy.maxVida;
+            enemy.currentLife = enemy.maxLife;
             enemy.transform.position = enemy.tilemapFlecha.GetCellCenterWorld(enemy.posicionInicial);
         }
         LoadStars();
@@ -76,7 +76,7 @@ public class GameManager : MonoBehaviour
         PlayerPrefs.Save();
         Debug.Log("Datos reseteados.");
     }
-    // Método para obtener la cantidad actual de gemas
+    // Mï¿½todo para obtener la cantidad actual de gemas
     public virtual int GetGems()
     {
         return PlayerPrefs.GetInt(GemsKey, 0);
@@ -87,7 +87,7 @@ public class GameManager : MonoBehaviour
         int currentStars = PlayerPrefs.GetInt(StarKey, 0);
         Debug.Log("Estrellas cargadas: " + currentStars);
     }
-    // Método para recolectar gemas
+    // Mï¿½todo para recolectar gemas
     public virtual void CollectGems(int amount)
     {
         int currentGems = PlayerPrefs.GetInt(GemsKey, 0);
@@ -103,7 +103,7 @@ public class GameManager : MonoBehaviour
             currentGems -= amount;
             PlayerPrefs.SetInt(GemsKey, currentGems);
             PlayerPrefs.Save();
-            return true; // Éxito al gastar gemas
+            return true; // ï¿½xito al gastar gemas
         }
         return false; // No hay suficientes gemas
     }
@@ -114,7 +114,7 @@ public class GameManager : MonoBehaviour
         int currentStars = GetStars();
         textoFinalStars.text = currentStars.ToString();
     }
-    // Método para gastar estrellas 
+    // Mï¿½todo para gastar estrellas 
     public virtual bool SpendStars(int amount)
     {
         int currentStars = PlayerPrefs.GetInt(StarKey, 0);
@@ -123,7 +123,7 @@ public class GameManager : MonoBehaviour
             currentStars -= amount;
             PlayerPrefs.SetInt(StarKey, currentStars);
             PlayerPrefs.Save();
-            return true; // Éxito al gastar estrellas
+            return true; // ï¿½xito al gastar estrellas
         }
         return false; // No hay suficientes estrellas
     }

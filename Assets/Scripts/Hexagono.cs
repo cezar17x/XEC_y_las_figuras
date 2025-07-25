@@ -3,25 +3,26 @@ using UnityEngine;
 
 public class Hexagono : Enemy
 {
-    public string _name;
-    public Hexagono(string name): base(name)
-    {
-        _name = name;
-    }
+    public Rigidbody2D rb;
+    public GameObject objeto;
+    public float alturaInicial = 10f;
+    public float tiempoAdvertencia = 2f;
+    public CanvasGroup advertenciaCanvas;
     public override void Start()
     {
         base.Start();
+        Caer();
     }
-    public override void Caer()
+    private void Caer()
     {
-        // Inicializamos la posición del objeto en la altura especificada
+        // Inicializamos la posiciï¿½n del objeto en la altura especificada
         objeto.transform.position = new Vector3(objeto.transform.position.x, alturaInicial, objeto.transform.position.z);
 
         advertenciaCanvas.alpha = 0f;
         rb = objeto.GetComponent<Rigidbody2D>();
         rb.isKinematic = true;
 
-        // Llamamos a la advertencia y el objeto caerá después
+        // Llamamos a la advertencia y el objeto caerï¿½ despuï¿½s
         StartCoroutine(MostrarAdvertenciaYDejarCaer());
     }
     IEnumerator MostrarAdvertenciaYDejarCaer()
@@ -31,18 +32,8 @@ public class Hexagono : Enemy
         advertenciaCanvas.alpha = 0f;
         rb.isKinematic = false;
     }
-    public override void TomaDaño(int daño)
+    public override void TakeDamage(int damage)
     {
-        vidaActual -= daño;
-        if (vidaActual > 0)
-        {
-            Instantiate(particleEffect, transform.position, Quaternion.identity);
-        }
-        else
-        {
-            onMuerte.Invoke();
-            Instantiate(particleEffect, transform.position, Quaternion.identity);
-            Destroy(gameObject, 1);
-        }
+        base.TakeDamage(damage);
     }
 }

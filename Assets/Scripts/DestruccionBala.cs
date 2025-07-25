@@ -19,7 +19,7 @@ public class DestruccionBala : MonoBehaviour
         else if (collision.gameObject.CompareTag("Enemy"))
         {
             Enemy vida = collision.gameObject.GetComponent<Enemy>();
-            vida.TomaDaño(1);
+            vida.TakeDamage(1);
         }
     }
 }
